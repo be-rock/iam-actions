@@ -1,49 +1,49 @@
-,Resource types,ARN,Condition keys
-0,device,arn:${Partition}:sagemaker:${Region}:${Account}:device-fleet/${DeviceFleetName}/device/${DeviceName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-1,device-fleet,arn:${Partition}:sagemaker:${Region}:${Account}:device-fleet/${DeviceFleetName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-2,edge-packaging-job,arn:${Partition}:sagemaker:${Region}:${Account}:edge-packaging-job/${EdgePackagingJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-3,human-loop,arn:${Partition}:sagemaker:${Region}:${Account}:human-loop/${HumanLoopName},
-4,flow-definition,arn:${Partition}:sagemaker:${Region}:${Account}:flow-definition/${FlowDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-5,human-task-ui,arn:${Partition}:sagemaker:${Region}:${Account}:human-task-ui/${HumanTaskUiName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-6,inference-recommendations-job,arn:${Partition}:sagemaker:${Region}:${Account}:inference-recommendations-job/${InferenceRecommendationsJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-7,labeling-job,arn:${Partition}:sagemaker:${Region}:${Account}:labeling-job/${LabelingJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-8,workteam,arn:${Partition}:sagemaker:${Region}:${Account}:workteam/${WorkteamName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-9,workforce,arn:${Partition}:sagemaker:${Region}:${Account}:workforce/${WorkforceName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-10,domain,arn:${Partition}:sagemaker:${Region}:${Account}:domain/${DomainId},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-11,user-profile,arn:${Partition}:sagemaker:${Region}:${Account}:user-profile/${DomainId}/${UserProfileName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-12,app,arn:${Partition}:sagemaker:${Region}:${Account}:app/${DomainId}/${UserProfileName}/${AppType}/${AppName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-13,app-image-config,arn:${Partition}:sagemaker:${Region}:${Account}:app-image-config/${AppImageConfigName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-14,studio-lifecycle-config,arn:${Partition}:sagemaker:${Region}:${Account}:studio-lifecycle-config/${StudioLifecycleConfigName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-15,notebook-instance,arn:${Partition}:sagemaker:${Region}:${Account}:notebook-instance/${NotebookInstanceName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-16,notebook-instance-lifecycle-config,arn:${Partition}:sagemaker:${Region}:${Account}:notebook-instance-lifecycle-config/${NotebookInstanceLifecycleConfigName},
-17,code-repository,arn:${Partition}:sagemaker:${Region}:${Account}:code-repository/${CodeRepositoryName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-18,image,arn:${Partition}:sagemaker:${Region}:${Account}:image/${ImageName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-19,image-version,arn:${Partition}:sagemaker:${Region}:${Account}:image-version/${ImageName}/${Version},
-20,algorithm,arn:${Partition}:sagemaker:${Region}:${Account}:algorithm/${AlgorithmName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-21,training-job,arn:${Partition}:sagemaker:${Region}:${Account}:training-job/${TrainingJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-22,processing-job,arn:${Partition}:sagemaker:${Region}:${Account}:processing-job/${ProcessingJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-23,hyper-parameter-tuning-job,arn:${Partition}:sagemaker:${Region}:${Account}:hyper-parameter-tuning-job/${HyperParameterTuningJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-24,project,arn:${Partition}:sagemaker:${Region}:${Account}:project/${ProjectName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-25,model-package,arn:${Partition}:sagemaker:${Region}:${Account}:model-package/${ModelPackageName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-26,model-package-group,arn:${Partition}:sagemaker:${Region}:${Account}:model-package-group/${ModelPackageGroupName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-27,model,arn:${Partition}:sagemaker:${Region}:${Account}:model/${ModelName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-28,endpoint-config,arn:${Partition}:sagemaker:${Region}:${Account}:endpoint-config/${EndpointConfigName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-29,endpoint,arn:${Partition}:sagemaker:${Region}:${Account}:endpoint/${EndpointName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-30,transform-job,arn:${Partition}:sagemaker:${Region}:${Account}:transform-job/${TransformJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-31,compilation-job,arn:${Partition}:sagemaker:${Region}:${Account}:compilation-job/${CompilationJobName},
-32,automl-job,arn:${Partition}:sagemaker:${Region}:${Account}:automl-job/${AutoMLJobJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-33,monitoring-schedule,arn:${Partition}:sagemaker:${Region}:${Account}:monitoring-schedule/${MonitoringScheduleName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-34,data-quality-job-definition,arn:${Partition}:sagemaker:${Region}:${Account}:data-quality-job-definition/${DataQualityJobDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-35,model-quality-job-definition,arn:${Partition}:sagemaker:${Region}:${Account}:model-quality-job-definition/${ModelQualityJobDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-36,model-bias-job-definition,arn:${Partition}:sagemaker:${Region}:${Account}:model-bias-job-definition/${ModelBiasJobDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-37,model-explainability-job-definition,arn:${Partition}:sagemaker:${Region}:${Account}:model-explainability-job-definition/${ModelExplainabilityJobDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-38,experiment,arn:${Partition}:sagemaker:${Region}:${Account}:experiment/${ExperimentName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-39,experiment-trial,arn:${Partition}:sagemaker:${Region}:${Account}:experiment-trial/${TrialName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-40,experiment-trial-component,arn:${Partition}:sagemaker:${Region}:${Account}:experiment-trial-component/${TrialComponentName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-41,feature-group,arn:${Partition}:sagemaker:${Region}:${Account}:feature-group/${FeatureGroupName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-42,pipeline,arn:${Partition}:sagemaker:${Region}:${Account}:pipeline/${PipelineName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-43,pipeline-execution,arn:${Partition}:sagemaker:${Region}:${Account}:pipeline/${PipelineName}/execution/${RandomString},
-44,artifact,arn:${Partition}:sagemaker:${Region}:${Account}:artifact/${HashOfArtifactSource},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-45,context,arn:${Partition}:sagemaker:${Region}:${Account}:context/${ContextName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-46,action,arn:${Partition}:sagemaker:${Region}:${Account}:action/${ActionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
-47,lineage-group,arn:${Partition}:sagemaker:${Region}:${Account}:lineage-group/${LineageGroupName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+Resource types,ARN,Condition keys
+action,arn:${Partition}:sagemaker:${Region}:${Account}:action/${ActionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+algorithm,arn:${Partition}:sagemaker:${Region}:${Account}:algorithm/${AlgorithmName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+app,arn:${Partition}:sagemaker:${Region}:${Account}:app/${DomainId}/${UserProfileName}/${AppType}/${AppName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+app-image-config,arn:${Partition}:sagemaker:${Region}:${Account}:app-image-config/${AppImageConfigName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+artifact,arn:${Partition}:sagemaker:${Region}:${Account}:artifact/${HashOfArtifactSource},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+automl-job,arn:${Partition}:sagemaker:${Region}:${Account}:automl-job/${AutoMLJobJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+code-repository,arn:${Partition}:sagemaker:${Region}:${Account}:code-repository/${CodeRepositoryName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+compilation-job,arn:${Partition}:sagemaker:${Region}:${Account}:compilation-job/${CompilationJobName},
+context,arn:${Partition}:sagemaker:${Region}:${Account}:context/${ContextName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+data-quality-job-definition,arn:${Partition}:sagemaker:${Region}:${Account}:data-quality-job-definition/${DataQualityJobDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+device,arn:${Partition}:sagemaker:${Region}:${Account}:device-fleet/${DeviceFleetName}/device/${DeviceName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+device-fleet,arn:${Partition}:sagemaker:${Region}:${Account}:device-fleet/${DeviceFleetName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+domain,arn:${Partition}:sagemaker:${Region}:${Account}:domain/${DomainId},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+edge-packaging-job,arn:${Partition}:sagemaker:${Region}:${Account}:edge-packaging-job/${EdgePackagingJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+endpoint,arn:${Partition}:sagemaker:${Region}:${Account}:endpoint/${EndpointName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+endpoint-config,arn:${Partition}:sagemaker:${Region}:${Account}:endpoint-config/${EndpointConfigName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+experiment,arn:${Partition}:sagemaker:${Region}:${Account}:experiment/${ExperimentName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+experiment-trial,arn:${Partition}:sagemaker:${Region}:${Account}:experiment-trial/${TrialName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+experiment-trial-component,arn:${Partition}:sagemaker:${Region}:${Account}:experiment-trial-component/${TrialComponentName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+feature-group,arn:${Partition}:sagemaker:${Region}:${Account}:feature-group/${FeatureGroupName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+flow-definition,arn:${Partition}:sagemaker:${Region}:${Account}:flow-definition/${FlowDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+human-loop,arn:${Partition}:sagemaker:${Region}:${Account}:human-loop/${HumanLoopName},
+human-task-ui,arn:${Partition}:sagemaker:${Region}:${Account}:human-task-ui/${HumanTaskUiName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+hyper-parameter-tuning-job,arn:${Partition}:sagemaker:${Region}:${Account}:hyper-parameter-tuning-job/${HyperParameterTuningJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+image,arn:${Partition}:sagemaker:${Region}:${Account}:image/${ImageName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+image-version,arn:${Partition}:sagemaker:${Region}:${Account}:image-version/${ImageName}/${Version},
+inference-recommendations-job,arn:${Partition}:sagemaker:${Region}:${Account}:inference-recommendations-job/${InferenceRecommendationsJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+labeling-job,arn:${Partition}:sagemaker:${Region}:${Account}:labeling-job/${LabelingJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+lineage-group,arn:${Partition}:sagemaker:${Region}:${Account}:lineage-group/${LineageGroupName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+model,arn:${Partition}:sagemaker:${Region}:${Account}:model/${ModelName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+model-bias-job-definition,arn:${Partition}:sagemaker:${Region}:${Account}:model-bias-job-definition/${ModelBiasJobDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+model-explainability-job-definition,arn:${Partition}:sagemaker:${Region}:${Account}:model-explainability-job-definition/${ModelExplainabilityJobDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+model-package,arn:${Partition}:sagemaker:${Region}:${Account}:model-package/${ModelPackageName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+model-package-group,arn:${Partition}:sagemaker:${Region}:${Account}:model-package-group/${ModelPackageGroupName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+model-quality-job-definition,arn:${Partition}:sagemaker:${Region}:${Account}:model-quality-job-definition/${ModelQualityJobDefinitionName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+monitoring-schedule,arn:${Partition}:sagemaker:${Region}:${Account}:monitoring-schedule/${MonitoringScheduleName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+notebook-instance,arn:${Partition}:sagemaker:${Region}:${Account}:notebook-instance/${NotebookInstanceName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+notebook-instance-lifecycle-config,arn:${Partition}:sagemaker:${Region}:${Account}:notebook-instance-lifecycle-config/${NotebookInstanceLifecycleConfigName},
+pipeline,arn:${Partition}:sagemaker:${Region}:${Account}:pipeline/${PipelineName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+pipeline-execution,arn:${Partition}:sagemaker:${Region}:${Account}:pipeline/${PipelineName}/execution/${RandomString},
+processing-job,arn:${Partition}:sagemaker:${Region}:${Account}:processing-job/${ProcessingJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+project,arn:${Partition}:sagemaker:${Region}:${Account}:project/${ProjectName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+studio-lifecycle-config,arn:${Partition}:sagemaker:${Region}:${Account}:studio-lifecycle-config/${StudioLifecycleConfigName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+training-job,arn:${Partition}:sagemaker:${Region}:${Account}:training-job/${TrainingJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+transform-job,arn:${Partition}:sagemaker:${Region}:${Account}:transform-job/${TransformJobName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+user-profile,arn:${Partition}:sagemaker:${Region}:${Account}:user-profile/${DomainId}/${UserProfileName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+workforce,arn:${Partition}:sagemaker:${Region}:${Account}:workforce/${WorkforceName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
+workteam,arn:${Partition}:sagemaker:${Region}:${Account}:workteam/${WorkteamName},aws:ResourceTag/${TagKey}  sagemaker:ResourceTag/${TagKey}
