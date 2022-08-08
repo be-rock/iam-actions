@@ -1,0 +1,9 @@
+Resource types,ARN,Condition keys
+accesspoint,arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName},
+bucket,arn:${Partition}:s3:::${BucketName},
+job,arn:${Partition}:s3:${Region}:${Account}:job/${JobId},
+multiregionaccesspoint,arn:${Partition}:s3::${Account}:accesspoint/${AccessPointAlias},
+multiregionaccesspointrequestarn,arn:${Partition}:s3:us-west-2:${Account}:async-request/mrap/${Operation}/${Token},
+object,arn:${Partition}:s3:::${BucketName}/${ObjectName},
+objectlambdaaccesspoint,arn:${Partition}:s3-object-lambda:${Region}:${Account}:accesspoint/${AccessPointName},
+storagelensconfiguration,arn:${Partition}:s3:${Region}:${Account}:storage-lens/${ConfigId},aws:ResourceTag/${TagKey}
