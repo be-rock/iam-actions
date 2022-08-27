@@ -1,9 +1,491 @@
-                                                                                              s3                                                                                              
-┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Resource types ┃ ARN                                                      ┃ Condition keys                                                                                                 ┃
-┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ alias          │ arn:${Partition}:kms:${Region}:${Account}:alias/${Alias} │                                                                                                                │
-├────────────────┼──────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ key            │ arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}   │ aws:ResourceTag/${TagKey}  kms:KeyOrigin  kms:KeySpec  kms:KeyUsage  kms:MultiRegion  kms:MultiRegionKeyType   │
-│                │                                                          │ kms:ResourceAliases                                                                                            │
-└────────────────┴──────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Actions                         ┃ Description                     ┃ Access level           ┃ Resource types (*required) ┃ Condition keys                  ┃ Dependent actions              ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CancelKeyDeletion               │ Controls permission to cancel   │ Write                  │ key*                       │                                 │                                │
+│                                 │ the scheduled deletion of an    │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ CancelKeyDeletion               │ Controls permission to cancel   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ the scheduled deletion of an    │                        │                            │ kms:ViaService                  │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ConnectCustomKeyStore           │ Controls permission to connect  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ or reconnect a custom key store │                        │                            │                                 │                                │
+│                                 │ to its associated AWS CloudHSM  │                        │                            │                                 │                                │
+│                                 │ cluster                         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ CreateAlias                     │ Controls permission to create   │ Write                  │ alias*                     │                                 │                                │
+│                                 │ an alias for an AWS KMS key.    │                        │                            │                                 │                                │
+│                                 │ Aliases are optional friendly   │                        │                            │                                 │                                │
+│                                 │ names that you can associate    │                        │                            │                                 │                                │
+│                                 │ with KMS keys                   │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ CreateAlias                     │ Controls permission to create   │ Write                  │ key*                       │                                 │                                │
+│                                 │ an alias for an AWS KMS key.    │                        │                            │                                 │                                │
+│                                 │ Aliases are optional friendly   │                        │                            │                                 │                                │
+│                                 │ names that you can associate    │                        │                            │                                 │                                │
+│                                 │ with KMS keys                   │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ CreateAlias                     │ Controls permission to create   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ an alias for an AWS KMS key.    │                        │                            │ kms:ViaService                  │                                │
+│                                 │ Aliases are optional friendly   │                        │                            │                                 │                                │
+│                                 │ names that you can associate    │                        │                            │                                 │                                │
+│                                 │ with KMS keys                   │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ CreateCustomKeyStore            │ Controls permission to create a │ Write                  │                            │ kms:CallerAccount               │ cloudhsm:DescribeClusters      │
+│                                 │ custom key store that is        │                        │                            │                                 │ iam:CreateServiceLinkedRole    │
+│                                 │ associated with an AWS CloudHSM │                        │                            │                                 │                                │
+│                                 │ cluster that you own and manage │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ CreateGrant                     │ Controls permission to add a    │ Permissions management │ key*                       │                                 │                                │
+│                                 │ grant to an AWS KMS key. You    │                        │                            │                                 │                                │
+│                                 │ can use grants to add           │                        │                            │                                 │                                │
+│                                 │ permissions without changing    │                        │                            │                                 │                                │
+│                                 │ the key policy or IAM policy    │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ CreateGrant                     │ Controls permission to add a    │ Permissions management │                            │ kms:CallerAccount               │                                │
+│                                 │ grant to an AWS KMS key. You    │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │ can use grants to add           │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │ permissions without changing    │                        │                            │ kms:GrantConstraintType         │                                │
+│                                 │ the key policy or IAM policy    │                        │                            │ kms:GranteePrincipal            │                                │
+│                                 │                                 │                        │                            │ kms:GrantIsForAWSResource       │                                │
+│                                 │                                 │                        │                            │ kms:GrantOperations             │                                │
+│                                 │                                 │                        │                            │ kms:RetiringPrincipal           │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ CreateKey                       │ Controls permission to create   │ Write                  │                            │ aws:ResourceTag/${TagKey}       │ iam:CreateServiceLinkedRole    │
+│                                 │ an AWS KMS key that can be used │                        │                            │ aws:RequestTag/${TagKey}        │ kms:PutKeyPolicy               │
+│                                 │ to protect data keys and other  │                        │                            │ aws:TagKeys                     │ kms:TagResource                │
+│                                 │ sensitive information           │                        │                            │ kms:BypassPolicyLockoutSafetyC… │                                │
+│                                 │                                 │                        │                            │ kms:CallerAccount  kms:KeySpec  │                                │
+│                                 │                                 │                        │                            │ kms:KeyUsage  kms:KeyOrigin     │                                │
+│                                 │                                 │                        │                            │ kms:MultiRegion                 │                                │
+│                                 │                                 │                        │                            │ kms:MultiRegionKeyType          │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ Decrypt                         │ Controls permission to decrypt  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ ciphertext that was encrypted   │                        │                            │ kms:EncryptionAlgorithm         │                                │
+│                                 │ under an AWS KMS key            │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │                                 │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │                                 │                        │                            │ kms:RecipientAttestation:Image… │                                │
+│                                 │                                 │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ Decrypt                         │ Controls permission to decrypt  │ Write                  │ key*                       │                                 │                                │
+│                                 │ ciphertext that was encrypted   │                        │                            │                                 │                                │
+│                                 │ under an AWS KMS key            │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DeleteAlias                     │ Controls permission to delete   │ Write                  │ alias*                     │                                 │                                │
+│                                 │ an alias. Aliases are optional  │                        │                            │                                 │                                │
+│                                 │ friendly names that you can     │                        │                            │                                 │                                │
+│                                 │ associate with AWS KMS keys     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DeleteAlias                     │ Controls permission to delete   │ Write                  │ key*                       │                                 │                                │
+│                                 │ an alias. Aliases are optional  │                        │                            │                                 │                                │
+│                                 │ friendly names that you can     │                        │                            │                                 │                                │
+│                                 │ associate with AWS KMS keys     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DeleteAlias                     │ Controls permission to delete   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ an alias. Aliases are optional  │                        │                            │ kms:ViaService                  │                                │
+│                                 │ friendly names that you can     │                        │                            │                                 │                                │
+│                                 │ associate with AWS KMS keys     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DeleteCustomKeyStore            │ Controls permission to delete a │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ custom key store                │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DeleteImportedKeyMaterial       │ Controls permission to delete   │ Write                  │ key*                       │                                 │                                │
+│                                 │ cryptographic material that you │                        │                            │                                 │                                │
+│                                 │ imported into an AWS KMS key.   │                        │                            │                                 │                                │
+│                                 │ This action makes the key       │                        │                            │                                 │                                │
+│                                 │ unusable                        │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DeleteImportedKeyMaterial       │ Controls permission to delete   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ cryptographic material that you │                        │                            │ kms:ViaService                  │                                │
+│                                 │ imported into an AWS KMS key.   │                        │                            │                                 │                                │
+│                                 │ This action makes the key       │                        │                            │                                 │                                │
+│                                 │ unusable                        │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DescribeCustomKeyStores         │ Controls permission to view     │ Read                   │                            │ kms:CallerAccount               │                                │
+│                                 │ detailed information about      │                        │                            │                                 │                                │
+│                                 │ custom key stores in the        │                        │                            │                                 │                                │
+│                                 │ account and region              │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DescribeKey                     │ Controls permission to view     │ Read                   │ key*                       │                                 │                                │
+│                                 │ detailed information about an   │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DescribeKey                     │ Controls permission to view     │ Read                   │                            │ kms:CallerAccount               │                                │
+│                                 │ detailed information about an   │                        │                            │ kms:RequestAlias                │                                │
+│                                 │ AWS KMS key                     │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DisableKey                      │ Controls permission to disable  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ an AWS KMS key, which prevents  │                        │                            │ kms:ViaService                  │                                │
+│                                 │ it from being used in           │                        │                            │                                 │                                │
+│                                 │ cryptographic operations        │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DisableKey                      │ Controls permission to disable  │ Write                  │ key*                       │                                 │                                │
+│                                 │ an AWS KMS key, which prevents  │                        │                            │                                 │                                │
+│                                 │ it from being used in           │                        │                            │                                 │                                │
+│                                 │ cryptographic operations        │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DisableKeyRotation              │ Controls permission to disable  │ Write                  │ key*                       │                                 │                                │
+│                                 │ automatic rotation of a         │                        │                            │                                 │                                │
+│                                 │ customer managed AWS KMS key    │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DisableKeyRotation              │ Controls permission to disable  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ automatic rotation of a         │                        │                            │ kms:ViaService                  │                                │
+│                                 │ customer managed AWS KMS key    │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ DisconnectCustomKeyStore        │ Controls permission to          │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ disconnect the custom key store │                        │                            │                                 │                                │
+│                                 │ from its associated AWS         │                        │                            │                                 │                                │
+│                                 │ CloudHSM cluster                │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ EnableKey                       │ Controls permission to change   │ Write                  │ key*                       │                                 │                                │
+│                                 │ the state of an AWS KMS key to  │                        │                            │                                 │                                │
+│                                 │ enabled. This allows the KMS    │                        │                            │                                 │                                │
+│                                 │ key to be used in cryptographic │                        │                            │                                 │                                │
+│                                 │ operations                      │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ EnableKey                       │ Controls permission to change   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ the state of an AWS KMS key to  │                        │                            │ kms:ViaService                  │                                │
+│                                 │ enabled. This allows the KMS    │                        │                            │                                 │                                │
+│                                 │ key to be used in cryptographic │                        │                            │                                 │                                │
+│                                 │ operations                      │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ EnableKeyRotation               │ Controls permission to enable   │ Write                  │ key*                       │                                 │                                │
+│                                 │ automatic rotation of the       │                        │                            │                                 │                                │
+│                                 │ cryptographic material in an    │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ EnableKeyRotation               │ Controls permission to enable   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ automatic rotation of the       │                        │                            │ kms:ViaService                  │                                │
+│                                 │ cryptographic material in an    │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ Encrypt                         │ Controls permission to use the  │ Write                  │ key*                       │                                 │                                │
+│                                 │ specified AWS KMS key to        │                        │                            │                                 │                                │
+│                                 │ encrypt data and data keys      │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ Encrypt                         │ Controls permission to use the  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ specified AWS KMS key to        │                        │                            │ kms:EncryptionAlgorithm         │                                │
+│                                 │ encrypt data and data keys      │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │                                 │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │                                 │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateDataKey                 │ Controls permission to use the  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ AWS KMS key to generate data    │                        │                            │ kms:EncryptionAlgorithm         │                                │
+│                                 │ keys. You can use the data keys │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │ to encrypt data outside of AWS  │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │ KMS                             │                        │                            │ kms:RecipientAttestation:Image… │                                │
+│                                 │                                 │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateDataKey                 │ Controls permission to use the  │ Write                  │ key*                       │                                 │                                │
+│                                 │ AWS KMS key to generate data    │                        │                            │                                 │                                │
+│                                 │ keys. You can use the data keys │                        │                            │                                 │                                │
+│                                 │ to encrypt data outside of AWS  │                        │                            │                                 │                                │
+│                                 │ KMS                             │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateDataKeyPair             │ Controls permission to use the  │ Write                  │ key*                       │                                 │                                │
+│                                 │ AWS KMS key to generate data    │                        │                            │                                 │                                │
+│                                 │ key pairs                       │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateDataKeyPair             │ Controls permission to use the  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ AWS KMS key to generate data    │                        │                            │ kms:DataKeyPairSpec             │                                │
+│                                 │ key pairs                       │                        │                            │ kms:EncryptionAlgorithm         │                                │
+│                                 │                                 │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │                                 │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │                                 │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateDataKeyPairWithoutPlai… │ Controls permission to use the  │ Write                  │ key*                       │                                 │                                │
+│                                 │ AWS KMS key to generate data    │                        │                            │                                 │                                │
+│                                 │ key pairs. Unlike the           │                        │                            │                                 │                                │
+│                                 │ GenerateDataKeyPair operation,  │                        │                            │                                 │                                │
+│                                 │ this operation returns an       │                        │                            │                                 │                                │
+│                                 │ encrypted private key without a │                        │                            │                                 │                                │
+│                                 │ plaintext copy                  │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateDataKeyPairWithoutPlai… │ Controls permission to use the  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ AWS KMS key to generate data    │                        │                            │ kms:DataKeyPairSpec             │                                │
+│                                 │ key pairs. Unlike the           │                        │                            │ kms:EncryptionAlgorithm         │                                │
+│                                 │ GenerateDataKeyPair operation,  │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │ this operation returns an       │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │ encrypted private key without a │                        │                            │ kms:RequestAlias                │                                │
+│                                 │ plaintext copy                  │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateDataKeyWithoutPlaintext │ Controls permission to use the  │ Write                  │ key*                       │                                 │                                │
+│                                 │ AWS KMS key to generate a data  │                        │                            │                                 │                                │
+│                                 │ key. Unlike the GenerateDataKey │                        │                            │                                 │                                │
+│                                 │ operation, this operation       │                        │                            │                                 │                                │
+│                                 │ returns an encrypted data key   │                        │                            │                                 │                                │
+│                                 │ without a plaintext version of  │                        │                            │                                 │                                │
+│                                 │ the data key                    │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateDataKeyWithoutPlaintext │ Controls permission to use the  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ AWS KMS key to generate a data  │                        │                            │ kms:EncryptionAlgorithm         │                                │
+│                                 │ key. Unlike the GenerateDataKey │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │ operation, this operation       │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │ returns an encrypted data key   │                        │                            │ kms:RequestAlias                │                                │
+│                                 │ without a plaintext version of  │                        │                            │ kms:ViaService                  │                                │
+│                                 │ the data key                    │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateMac                     │ Controls permission to use the  │ Write                  │ key*                       │                                 │                                │
+│                                 │ AWS KMS key to generate message │                        │                            │                                 │                                │
+│                                 │ authentication codes            │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateMac                     │ Controls permission to use the  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ AWS KMS key to generate message │                        │                            │ kms:MacAlgorithm                │                                │
+│                                 │ authentication codes            │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GenerateRandom                  │ Controls permission to get a    │ Write                  │                            │ kms:RecipientAttestation:Image… │                                │
+│                                 │ cryptographically secure random │                        │                            │                                 │                                │
+│                                 │ byte string from AWS KMS        │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GetKeyPolicy                    │ Controls permission to view the │ Read                   │ key*                       │                                 │                                │
+│                                 │ key policy for the specified    │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GetKeyPolicy                    │ Controls permission to view the │ Read                   │                            │ kms:CallerAccount               │                                │
+│                                 │ key policy for the specified    │                        │                            │ kms:ViaService                  │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GetKeyRotationStatus            │ Controls permission to          │ Read                   │                            │ kms:CallerAccount               │                                │
+│                                 │ determine whether automatic key │                        │                            │ kms:ViaService                  │                                │
+│                                 │ rotation is enabled on the AWS  │                        │                            │                                 │                                │
+│                                 │ KMS key                         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GetKeyRotationStatus            │ Controls permission to          │ Read                   │ key*                       │                                 │                                │
+│                                 │ determine whether automatic key │                        │                            │                                 │                                │
+│                                 │ rotation is enabled on the AWS  │                        │                            │                                 │                                │
+│                                 │ KMS key                         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GetParametersForImport          │ Controls permission to get data │ Read                   │ key*                       │                                 │                                │
+│                                 │ that is required to import      │                        │                            │                                 │                                │
+│                                 │ cryptographic material into a   │                        │                            │                                 │                                │
+│                                 │ customer managed key, including │                        │                            │                                 │                                │
+│                                 │ a public key and import token   │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GetParametersForImport          │ Controls permission to get data │ Read                   │                            │ kms:CallerAccount               │                                │
+│                                 │ that is required to import      │                        │                            │ kms:ViaService                  │                                │
+│                                 │ cryptographic material into a   │                        │                            │ kms:WrappingAlgorithm           │                                │
+│                                 │ customer managed key, including │                        │                            │ kms:WrappingKeySpec             │                                │
+│                                 │ a public key and import token   │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GetPublicKey                    │ Controls permission to download │ Read                   │ key*                       │                                 │                                │
+│                                 │ the public key of an asymmetric │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ GetPublicKey                    │ Controls permission to download │ Read                   │                            │ kms:CallerAccount               │                                │
+│                                 │ the public key of an asymmetric │                        │                            │ kms:RequestAlias                │                                │
+│                                 │ AWS KMS key                     │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ImportKeyMaterial               │ Controls permission to import   │ Write                  │ key*                       │                                 │                                │
+│                                 │ cryptographic material into an  │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ImportKeyMaterial               │ Controls permission to import   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ cryptographic material into an  │                        │                            │ kms:ExpirationModel             │                                │
+│                                 │ AWS KMS key                     │                        │                            │ kms:ValidTo  kms:ViaService     │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListAliases                     │ Controls permission to view the │ List                   │                            │                                 │                                │
+│                                 │ aliases that are defined in the │                        │                            │                                 │                                │
+│                                 │ account. Aliases are optional   │                        │                            │                                 │                                │
+│                                 │ friendly names that you can     │                        │                            │                                 │                                │
+│                                 │ associate with AWS KMS keys     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListGrants                      │ Controls permission to view all │ List                   │ key*                       │                                 │                                │
+│                                 │ grants for an AWS KMS key       │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListGrants                      │ Controls permission to view all │ List                   │                            │ kms:CallerAccount               │                                │
+│                                 │ grants for an AWS KMS key       │                        │                            │ kms:GrantIsForAWSResource       │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListKeyPolicies                 │ Controls permission to view the │ List                   │                            │ kms:CallerAccount               │                                │
+│                                 │ names of key policies for an    │                        │                            │ kms:ViaService                  │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListKeyPolicies                 │ Controls permission to view the │ List                   │ key*                       │                                 │                                │
+│                                 │ names of key policies for an    │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListKeys                        │ Controls permission to view the │ List                   │                            │                                 │                                │
+│                                 │ key ID and Amazon Resource Name │                        │                            │                                 │                                │
+│                                 │ (ARN) of all AWS KMS keys in    │                        │                            │                                 │                                │
+│                                 │ the account                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListResourceTags                │ Controls permission to view all │ List                   │ key*                       │                                 │                                │
+│                                 │ tags that are attached to an    │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListResourceTags                │ Controls permission to view all │ List                   │                            │ kms:CallerAccount               │                                │
+│                                 │ tags that are attached to an    │                        │                            │ kms:ViaService                  │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ListRetirableGrants             │ Controls permission to view     │ List                   │ key*                       │                                 │                                │
+│                                 │ grants in which the specified   │                        │                            │                                 │                                │
+│                                 │ principal is the retiring       │                        │                            │                                 │                                │
+│                                 │ principal. Other principals     │                        │                            │                                 │                                │
+│                                 │ might be able to retire the     │                        │                            │                                 │                                │
+│                                 │ grant and this principal might  │                        │                            │                                 │                                │
+│                                 │ be able to retire other grants  │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ PutKeyPolicy                    │ Controls permission to replace  │ Permissions management │ key*                       │                                 │                                │
+│                                 │ the key policy for the          │                        │                            │                                 │                                │
+│                                 │ specified AWS KMS key           │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ PutKeyPolicy                    │ Controls permission to replace  │ Permissions management │                            │ kms:BypassPolicyLockoutSafetyC… │                                │
+│                                 │ the key policy for the          │                        │                            │ kms:CallerAccount               │                                │
+│                                 │ specified AWS KMS key           │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ReEncryptFrom                   │ Controls permission to decrypt  │ Write                  │ key*                       │                                 │                                │
+│                                 │ data as part of the process     │                        │                            │                                 │                                │
+│                                 │ that decrypts and reencrypts    │                        │                            │                                 │                                │
+│                                 │ the data within AWS KMS         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ReEncryptFrom                   │ Controls permission to decrypt  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ data as part of the process     │                        │                            │ kms:EncryptionAlgorithm         │                                │
+│                                 │ that decrypts and reencrypts    │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │ the data within AWS KMS         │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │                                 │                        │                            │ kms:ReEncryptOnSameKey          │                                │
+│                                 │                                 │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ReEncryptTo                     │ Controls permission to encrypt  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ data as part of the process     │                        │                            │ kms:EncryptionAlgorithm         │                                │
+│                                 │ that decrypts and reencrypts    │                        │                            │ kms:EncryptionContext:${Encryp… │                                │
+│                                 │ the data within AWS KMS         │                        │                            │ kms:EncryptionContextKeys       │                                │
+│                                 │                                 │                        │                            │ kms:ReEncryptOnSameKey          │                                │
+│                                 │                                 │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ReEncryptTo                     │ Controls permission to encrypt  │ Write                  │ key*                       │                                 │                                │
+│                                 │ data as part of the process     │                        │                            │                                 │                                │
+│                                 │ that decrypts and reencrypts    │                        │                            │                                 │                                │
+│                                 │ the data within AWS KMS         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ReplicateKey                    │ Controls permission to          │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ replicate a multi-Region        │                        │                            │ kms:ReplicaRegion               │                                │
+│                                 │ primary key                     │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ReplicateKey                    │ Controls permission to          │ Write                  │ key*                       │                                 │ iam:CreateServiceLinkedRole    │
+│                                 │ replicate a multi-Region        │                        │                            │                                 │ kms:CreateKey                  │
+│                                 │ primary key                     │                        │                            │                                 │ kms:PutKeyPolicy               │
+│                                 │                                 │                        │                            │                                 │ kms:TagResource                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ RetireGrant                     │ Controls permission to retire a │ Permissions management │ key*                       │                                 │                                │
+│                                 │ grant. The RetireGrant          │                        │                            │                                 │                                │
+│                                 │ operation is typically called   │                        │                            │                                 │                                │
+│                                 │ by the grant user after they    │                        │                            │                                 │                                │
+│                                 │ complete the tasks that the     │                        │                            │                                 │                                │
+│                                 │ grant allowed them to perform   │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ RevokeGrant                     │ Controls permission to revoke a │ Permissions management │ key*                       │                                 │                                │
+│                                 │ grant, which denies permission  │                        │                            │                                 │                                │
+│                                 │ for all operations that depend  │                        │                            │                                 │                                │
+│                                 │ on the grant                    │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ RevokeGrant                     │ Controls permission to revoke a │ Permissions management │                            │ kms:CallerAccount               │                                │
+│                                 │ grant, which denies permission  │                        │                            │ kms:GrantIsForAWSResource       │                                │
+│                                 │ for all operations that depend  │                        │                            │ kms:ViaService                  │                                │
+│                                 │ on the grant                    │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ScheduleKeyDeletion             │ Controls permission to schedule │ Write                  │ key*                       │                                 │                                │
+│                                 │ deletion of an AWS KMS key      │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ ScheduleKeyDeletion             │ Controls permission to schedule │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ deletion of an AWS KMS key      │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ Sign                            │ Controls permission to produce  │ Write                  │ key*                       │                                 │                                │
+│                                 │ a digital signature for a       │                        │                            │                                 │                                │
+│                                 │ message                         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ Sign                            │ Controls permission to produce  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ a digital signature for a       │                        │                            │ kms:MessageType                 │                                │
+│                                 │ message                         │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:SigningAlgorithm            │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ SynchronizeMultiRegionKey       │ Controls access to internal     │ Write                  │ key*                       │                                 │                                │
+│                                 │ APIs that synchronize           │                        │                            │                                 │                                │
+│                                 │ multi-Region keys               │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ TagResource                     │ Controls permission to create   │ Tagging                │ key*                       │                                 │                                │
+│                                 │ or update tags that are         │                        │                            │                                 │                                │
+│                                 │ attached to an AWS KMS key      │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ TagResource                     │ Controls permission to create   │ Tagging                │                            │ aws:RequestTag/${TagKey}        │                                │
+│                                 │ or update tags that are         │                        │                            │ aws:TagKeys  kms:CallerAccount  │                                │
+│                                 │ attached to an AWS KMS key      │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UntagResource                   │ Controls permission to delete   │ Tagging                │                            │ aws:TagKeys  kms:CallerAccount  │                                │
+│                                 │ tags that are attached to an    │                        │                            │ kms:ViaService                  │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UntagResource                   │ Controls permission to delete   │ Tagging                │ key*                       │                                 │                                │
+│                                 │ tags that are attached to an    │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UpdateAlias                     │ Controls permission to          │ Write                  │ alias*                     │                                 │                                │
+│                                 │ associate an alias with a       │                        │                            │                                 │                                │
+│                                 │ different AWS KMS key. An alias │                        │                            │                                 │                                │
+│                                 │ is an optional friendly name    │                        │                            │                                 │                                │
+│                                 │ that you can associate with a   │                        │                            │                                 │                                │
+│                                 │ KMS key                         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UpdateAlias                     │ Controls permission to          │ Write                  │ key*                       │                                 │                                │
+│                                 │ associate an alias with a       │                        │                            │                                 │                                │
+│                                 │ different AWS KMS key. An alias │                        │                            │                                 │                                │
+│                                 │ is an optional friendly name    │                        │                            │                                 │                                │
+│                                 │ that you can associate with a   │                        │                            │                                 │                                │
+│                                 │ KMS key                         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UpdateAlias                     │ Controls permission to          │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ associate an alias with a       │                        │                            │ kms:ViaService                  │                                │
+│                                 │ different AWS KMS key. An alias │                        │                            │                                 │                                │
+│                                 │ is an optional friendly name    │                        │                            │                                 │                                │
+│                                 │ that you can associate with a   │                        │                            │                                 │                                │
+│                                 │ KMS key                         │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UpdateCustomKeyStore            │ Controls permission to change   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ the properties of a custom key  │                        │                            │                                 │                                │
+│                                 │ store                           │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UpdateKeyDescription            │ Controls permission to delete   │ Write                  │ key*                       │                                 │                                │
+│                                 │ or change the description of an │                        │                            │                                 │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UpdateKeyDescription            │ Controls permission to delete   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ or change the description of an │                        │                            │ kms:ViaService                  │                                │
+│                                 │ AWS KMS key                     │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UpdatePrimaryRegion             │ Controls permission to update   │ Write                  │ key*                       │                                 │                                │
+│                                 │ the primary Region of a         │                        │                            │                                 │                                │
+│                                 │ multi-Region primary key        │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ UpdatePrimaryRegion             │ Controls permission to update   │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ the primary Region of a         │                        │                            │ kms:PrimaryRegion               │                                │
+│                                 │ multi-Region primary key        │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ Verify                          │ Controls permission to use the  │ Write                  │ key*                       │                                 │                                │
+│                                 │ specified AWS KMS key to verify │                        │                            │                                 │                                │
+│                                 │ digital signatures              │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ Verify                          │ Controls permission to use the  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ specified AWS KMS key to verify │                        │                            │ kms:MessageType                 │                                │
+│                                 │ digital signatures              │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:SigningAlgorithm            │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ VerifyMac                       │ Controls permission to use the  │ Write                  │ key*                       │                                 │                                │
+│                                 │ AWS KMS key to verify message   │                        │                            │                                 │                                │
+│                                 │ authentication codes            │                        │                            │                                 │                                │
+├─────────────────────────────────┼─────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ VerifyMac                       │ Controls permission to use the  │ Write                  │                            │ kms:CallerAccount               │                                │
+│                                 │ AWS KMS key to verify message   │                        │                            │ kms:MacAlgorithm                │                                │
+│                                 │ authentication codes            │                        │                            │ kms:RequestAlias                │                                │
+│                                 │                                 │                        │                            │ kms:ViaService                  │                                │
+└─────────────────────────────────┴─────────────────────────────────┴────────────────────────┴────────────────────────────┴─────────────────────────────────┴────────────────────────────────┘
