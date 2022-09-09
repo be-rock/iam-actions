@@ -61,6 +61,12 @@ def write_data_to_files(
 def main():
 
     service_mapping = {
+        "athena": "amazonathena",
+        "emr": "amazonelasticmapreduce",
+        "emr on eks": "amazonemroneksemrcontainers",
+        "emr serverless": "amazonemrserverless",
+        "glue": "awsglue",
+        "glue databrew": "awsgluedatabrew",
         "iam": "identityandaccessmanagement",
         "kms": "awskeymanagementservice",
         "lakeformation": "awslakeformation",
