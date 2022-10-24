@@ -1,96 +1,94 @@
-                                                    Last updated: 2022-10-24T01:51:57+00:00                                                    
-┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
-┃                         ┃                          ┃              ┃ Resource types           ┃                          ┃                   ┃
-┃ Actions                 ┃ Description              ┃ Access level ┃ (*required)              ┃ Condition keys           ┃ Dependent actions ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
-│ CancelJobRun            │ Grants permission to     │ Write        │ jobRun*                  │                          │                   │
-│                         │ cancel a job run         │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreateManagedEndpoint   │ Grants permission to     │ Write        │ virtualCluster*          │                          │                   │
-│                         │ create a managed         │              │                          │                          │                   │
-│                         │ endpoint                 │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreateManagedEndpoint   │ Grants permission to     │ Write        │                          │ aws:RequestTag/${TagKey} │                   │
-│                         │ create a managed         │              │                          │ aws:TagKeys              │                   │
-│                         │ endpoint                 │              │                          │ emr-containers:Executio… │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreateVirtualCluster    │ Grants permission to     │ Write        │                          │ aws:RequestTag/${TagKey} │                   │
-│                         │ create a virtual cluster │              │                          │ aws:TagKeys              │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ DeleteManagedEndpoint   │ Grants permission to     │ Write        │ managedEndpoint*         │                          │                   │
-│                         │ delete a managed         │              │                          │                          │                   │
-│                         │ endpoint                 │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ DeleteVirtualCluster    │ Grants permission to     │ Write        │ virtualCluster*          │                          │                   │
-│                         │ delete a virtual cluster │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ DescribeJobRun          │ Grants permission to     │ Read         │ jobRun*                  │                          │                   │
-│                         │ describe a job run       │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ DescribeManagedEndpoint │ Grants permission to     │ Read         │ managedEndpoint*         │                          │                   │
-│                         │ describe a managed       │              │                          │                          │                   │
-│                         │ endpoint                 │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ DescribeVirtualCluster  │ Grants permission to     │ Read         │ virtualCluster*          │                          │                   │
-│                         │ describe a virtual       │              │                          │                          │                   │
-│                         │ cluster                  │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListJobRuns             │ Grants permission to     │ List         │ virtualCluster*          │                          │                   │
-│                         │ list job runs associated │              │                          │                          │                   │
-│                         │ with a virtual cluster   │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListManagedEndpoints    │ Grants permission to     │ List         │ virtualCluster*          │                          │                   │
-│                         │ list managed endpoints   │              │                          │                          │                   │
-│                         │ associated with a        │              │                          │                          │                   │
-│                         │ virtual cluster          │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListTagsForResource     │ Grants permission to     │ List         │ virtualCluster           │                          │                   │
-│                         │ list tags for the        │              │                          │                          │                   │
-│                         │ specified resource       │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListTagsForResource     │ Grants permission to     │ List         │ managedEndpoint          │                          │                   │
-│                         │ list tags for the        │              │                          │                          │                   │
-│                         │ specified resource       │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListTagsForResource     │ Grants permission to     │ List         │ jobRun                   │                          │                   │
-│                         │ list tags for the        │              │                          │                          │                   │
-│                         │ specified resource       │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListVirtualClusters     │ Grants permission to     │ List         │                          │                          │                   │
-│                         │ list virtual clusters    │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ StartJobRun             │ Grants permission to     │ Write        │ virtualCluster*          │                          │                   │
-│                         │ start a job run          │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ StartJobRun             │ Grants permission to     │ Write        │                          │ aws:RequestTag/${TagKey} │                   │
-│                         │ start a job run          │              │                          │ aws:TagKeys              │                   │
-│                         │                          │              │                          │ emr-containers:Executio… │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ TagResource             │ Grants permission to tag │ Tagging      │ jobRun                   │                          │                   │
-│                         │ the specified resource   │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ TagResource             │ Grants permission to tag │ Tagging      │ managedEndpoint          │                          │                   │
-│                         │ the specified resource   │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ TagResource             │ Grants permission to tag │ Tagging      │ virtualCluster           │                          │                   │
-│                         │ the specified resource   │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ TagResource             │ Grants permission to tag │ Tagging      │                          │ aws:RequestTag/${TagKey} │                   │
-│                         │ the specified resource   │              │                          │ aws:TagKeys              │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ UntagResource           │ Grants permission to     │ Tagging      │ jobRun                   │                          │                   │
-│                         │ untag the specified      │              │                          │                          │                   │
-│                         │ resource                 │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ UntagResource           │ Grants permission to     │ Tagging      │ managedEndpoint          │                          │                   │
-│                         │ untag the specified      │              │                          │                          │                   │
-│                         │ resource                 │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ UntagResource           │ Grants permission to     │ Tagging      │ virtualCluster           │                          │                   │
-│                         │ untag the specified      │              │                          │                          │                   │
-│                         │ resource                 │              │                          │                          │                   │
-├─────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼──────────────────────────┼───────────────────┤
-│ UntagResource           │ Grants permission to     │ Tagging      │                          │ aws:TagKeys              │                   │
-│                         │ untag the specified      │              │                          │                          │                   │
-│                         │ resource                 │              │                          │                          │                   │
-└─────────────────────────┴──────────────────────────┴──────────────┴──────────────────────────┴──────────────────────────┴───────────────────┘
+                                                     Last updated: 2022-10-24T01:56:43+00:00                                                     
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃                         ┃                           ┃              ┃ Resource types           ┃                           ┃                   ┃
+┃ Actions                 ┃ Description               ┃ Access level ┃ (*required)              ┃ Condition keys            ┃ Dependent actions ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ CancelJobRun            │ Grants permission to      │ Write        │ jobRun*                  │                           │                   │
+│                         │ cancel a job run          │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ CreateManagedEndpoint   │ Grants permission to      │ Write        │ virtualCluster*          │                           │                   │
+│                         │ create a managed endpoint │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ CreateManagedEndpoint   │ Grants permission to      │ Write        │                          │ aws:RequestTag/${TagKey}  │                   │
+│                         │ create a managed endpoint │              │                          │ aws:TagKeys               │                   │
+│                         │                           │              │                          │ emr-containers:Execution… │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ CreateVirtualCluster    │ Grants permission to      │ Write        │                          │ aws:RequestTag/${TagKey}  │                   │
+│                         │ create a virtual cluster  │              │                          │ aws:TagKeys               │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ DeleteManagedEndpoint   │ Grants permission to      │ Write        │ managedEndpoint*         │                           │                   │
+│                         │ delete a managed endpoint │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ DeleteVirtualCluster    │ Grants permission to      │ Write        │ virtualCluster*          │                           │                   │
+│                         │ delete a virtual cluster  │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ DescribeJobRun          │ Grants permission to      │ Read         │ jobRun*                  │                           │                   │
+│                         │ describe a job run        │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ DescribeManagedEndpoint │ Grants permission to      │ Read         │ managedEndpoint*         │                           │                   │
+│                         │ describe a managed        │              │                          │                           │                   │
+│                         │ endpoint                  │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ DescribeVirtualCluster  │ Grants permission to      │ Read         │ virtualCluster*          │                           │                   │
+│                         │ describe a virtual        │              │                          │                           │                   │
+│                         │ cluster                   │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ ListJobRuns             │ Grants permission to list │ List         │ virtualCluster*          │                           │                   │
+│                         │ job runs associated with  │              │                          │                           │                   │
+│                         │ a virtual cluster         │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ ListManagedEndpoints    │ Grants permission to list │ List         │ virtualCluster*          │                           │                   │
+│                         │ managed endpoints         │              │                          │                           │                   │
+│                         │ associated with a virtual │              │                          │                           │                   │
+│                         │ cluster                   │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ ListTagsForResource     │ Grants permission to list │ List         │ virtualCluster           │                           │                   │
+│                         │ tags for the specified    │              │                          │                           │                   │
+│                         │ resource                  │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ ListTagsForResource     │ Grants permission to list │ List         │ managedEndpoint          │                           │                   │
+│                         │ tags for the specified    │              │                          │                           │                   │
+│                         │ resource                  │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ ListTagsForResource     │ Grants permission to list │ List         │ jobRun                   │                           │                   │
+│                         │ tags for the specified    │              │                          │                           │                   │
+│                         │ resource                  │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ ListVirtualClusters     │ Grants permission to list │ List         │                          │                           │                   │
+│                         │ virtual clusters          │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ StartJobRun             │ Grants permission to      │ Write        │ virtualCluster*          │                           │                   │
+│                         │ start a job run           │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ StartJobRun             │ Grants permission to      │ Write        │                          │ aws:RequestTag/${TagKey}  │                   │
+│                         │ start a job run           │              │                          │ aws:TagKeys               │                   │
+│                         │                           │              │                          │ emr-containers:Execution… │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ TagResource             │ Grants permission to tag  │ Tagging      │ jobRun                   │                           │                   │
+│                         │ the specified resource    │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ TagResource             │ Grants permission to tag  │ Tagging      │ managedEndpoint          │                           │                   │
+│                         │ the specified resource    │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ TagResource             │ Grants permission to tag  │ Tagging      │ virtualCluster           │                           │                   │
+│                         │ the specified resource    │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ TagResource             │ Grants permission to tag  │ Tagging      │                          │ aws:RequestTag/${TagKey}  │                   │
+│                         │ the specified resource    │              │                          │ aws:TagKeys               │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ UntagResource           │ Grants permission to      │ Tagging      │ jobRun                   │                           │                   │
+│                         │ untag the specified       │              │                          │                           │                   │
+│                         │ resource                  │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ UntagResource           │ Grants permission to      │ Tagging      │ managedEndpoint          │                           │                   │
+│                         │ untag the specified       │              │                          │                           │                   │
+│                         │ resource                  │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ UntagResource           │ Grants permission to      │ Tagging      │ virtualCluster           │                           │                   │
+│                         │ untag the specified       │              │                          │                           │                   │
+│                         │ resource                  │              │                          │                           │                   │
+├─────────────────────────┼───────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
+│ UntagResource           │ Grants permission to      │ Tagging      │                          │ aws:TagKeys               │                   │
+│                         │ untag the specified       │              │                          │                           │                   │
+│                         │ resource                  │              │                          │                           │                   │
+└─────────────────────────┴───────────────────────────┴──────────────┴──────────────────────────┴───────────────────────────┴───────────────────┘

@@ -42,7 +42,7 @@ def create_table(iam_info: list[dict]) -> Table:
         title=f"Last updated: {datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds')}",
         show_lines=True,
         safe_box=False,
-        min_width=180
+        min_width=180,
     )
     _ = [table.add_column(col) for col in iam_info[0]]
     for row in iam_info:

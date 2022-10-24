@@ -1,182 +1,182 @@
-                                                    Last updated: 2022-10-24T01:51:56+00:00                                                    
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
-┃                          ┃                          ┃              ┃ Resource types          ┃                          ┃                   ┃
-┃ Actions                  ┃ Description              ┃ Access level ┃ (*required)             ┃ Condition keys           ┃ Dependent actions ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
-│ BatchGetNamedQuery       │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ information about one or │              │                         │                          │                   │
-│                          │ more named queries       │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ BatchGetPreparedStateme… │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ information about one or │              │                         │                          │                   │
-│                          │ more prepared statements │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ BatchGetQueryExecution   │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ information about one or │              │                         │                          │                   │
-│                          │ more query executions    │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreateDataCatalog        │ Grants permission to     │ Write        │ datacatalog*            │                          │                   │
-│                          │ create a datacatalog     │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreateDataCatalog        │ Grants permission to     │ Write        │                         │ aws:RequestTag/${TagKey} │                   │
-│                          │ create a datacatalog     │              │                         │ aws:TagKeys              │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreateNamedQuery         │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ create a named query     │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreatePreparedStatement  │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ create a prepared        │              │                         │                          │                   │
-│                          │ statement                │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreateWorkGroup          │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ create a workgroup       │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ CreateWorkGroup          │ Grants permission to     │ Write        │                         │ aws:RequestTag/${TagKey} │                   │
-│                          │ create a workgroup       │              │                         │ aws:TagKeys              │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ DeleteDataCatalog        │ Grants permission to     │ Write        │ datacatalog*            │                          │                   │
-│                          │ delete a datacatalog     │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ DeleteNamedQuery         │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ delete a named query     │              │                         │                          │                   │
-│                          │ specified                │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ DeletePreparedStatement  │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ delete a prepared        │              │                         │                          │                   │
-│                          │ statement specified      │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ DeleteWorkGroup          │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ delete a workgroup       │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetDataCatalog           │ Grants permission to get │ Read         │ datacatalog*            │                          │                   │
-│                          │ a datacatalog            │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetDatabase              │ Grants permission to get │ Read         │ datacatalog*            │                          │                   │
-│                          │ a database for a given   │              │                         │                          │                   │
-│                          │ datacatalog              │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetNamedQuery            │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ information about the    │              │                         │                          │                   │
-│                          │ specified named query    │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetPreparedStatement     │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ information about the    │              │                         │                          │                   │
-│                          │ specified prepared       │              │                         │                          │                   │
-│                          │ statement                │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetQueryExecution        │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ information about the    │              │                         │                          │                   │
-│                          │ specified query          │              │                         │                          │                   │
-│                          │ execution                │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetQueryResults          │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ the query results        │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetQueryResultsStream    │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ the query results stream │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetQueryRuntimeStatisti… │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ runtime statistics for   │              │                         │                          │                   │
-│                          │ the specified query      │              │                         │                          │                   │
-│                          │ execution                │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetTableMetadata         │ Grants permission to get │ Read         │ datacatalog*            │                          │                   │
-│                          │ a metadata about a table │              │                         │                          │                   │
-│                          │ for a given datacatalog  │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ GetWorkGroup             │ Grants permission to get │ Read         │ workgroup*              │                          │                   │
-│                          │ a workgroup              │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListDataCatalogs         │ Grants permission to     │ List         │                         │                          │                   │
-│                          │ return a list of         │              │                         │                          │                   │
-│                          │ datacatalogs for the     │              │                         │                          │                   │
-│                          │ specified AWS account    │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListDatabases            │ Grants permission to     │ List         │ datacatalog*            │                          │                   │
-│                          │ return a list of         │              │                         │                          │                   │
-│                          │ databases for a given    │              │                         │                          │                   │
-│                          │ datacatalog              │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListEngineVersions       │ Grants permission to     │ Read         │                         │                          │                   │
-│                          │ return a list of athena  │              │                         │                          │                   │
-│                          │ engine versions for the  │              │                         │                          │                   │
-│                          │ specified AWS account    │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListNamedQueries         │ Grants permission to     │ List         │ workgroup*              │                          │                   │
-│                          │ return a list of named   │              │                         │                          │                   │
-│                          │ queries in Amazon Athena │              │                         │                          │                   │
-│                          │ for the specified AWS    │              │                         │                          │                   │
-│                          │ account                  │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListPreparedStatements   │ Grants permission to     │ List         │ workgroup*              │                          │                   │
-│                          │ return a list of         │              │                         │                          │                   │
-│                          │ prepared statements for  │              │                         │                          │                   │
-│                          │ the specified workgroup  │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListQueryExecutions      │ Grants permission to     │ Read         │ workgroup*              │                          │                   │
-│                          │ return a list of query   │              │                         │                          │                   │
-│                          │ executions for the       │              │                         │                          │                   │
-│                          │ specified AWS account    │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListTableMetadata        │ Grants permission to     │ Read         │ datacatalog*            │                          │                   │
-│                          │ return a list of table   │              │                         │                          │                   │
-│                          │ metadata in a database   │              │                         │                          │                   │
-│                          │ for a given datacatalog  │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListTagsForResource      │ Grants permission to     │ Read         │ datacatalog*            │                          │                   │
-│                          │ return a list of tags    │              │                         │                          │                   │
-│                          │ for a resource           │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListTagsForResource      │ Grants permission to     │ Read         │ workgroup*              │                          │                   │
-│                          │ return a list of tags    │              │                         │                          │                   │
-│                          │ for a resource           │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ ListWorkGroups           │ Grants permission to     │ List         │                         │                          │                   │
-│                          │ return a list of         │              │                         │                          │                   │
-│                          │ workgroups for the       │              │                         │                          │                   │
-│                          │ specified AWS account    │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ StartQueryExecution      │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ start a query execution  │              │                         │                          │                   │
-│                          │ using an SQL query       │              │                         │                          │                   │
-│                          │ provided as a string     │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ StopQueryExecution       │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ stop the specified query │              │                         │                          │                   │
-│                          │ execution                │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ TagResource              │ Grants permission to add │ Tagging      │ datacatalog*            │                          │                   │
-│                          │ a tag to a resource      │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ TagResource              │ Grants permission to add │ Tagging      │ workgroup*              │                          │                   │
-│                          │ a tag to a resource      │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ TagResource              │ Grants permission to add │ Tagging      │                         │ aws:RequestTag/${TagKey} │                   │
-│                          │ a tag to a resource      │              │                         │ aws:TagKeys              │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ UntagResource            │ Grants permission to     │ Tagging      │ datacatalog*            │                          │                   │
-│                          │ remove a tag from a      │              │                         │                          │                   │
-│                          │ resource                 │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ UntagResource            │ Grants permission to     │ Tagging      │ workgroup*              │                          │                   │
-│                          │ remove a tag from a      │              │                         │                          │                   │
-│                          │ resource                 │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ UntagResource            │ Grants permission to     │ Tagging      │                         │ aws:TagKeys              │                   │
-│                          │ remove a tag from a      │              │                         │                          │                   │
-│                          │ resource                 │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ UpdateDataCatalog        │ Grants permission to     │ Write        │ datacatalog*            │                          │                   │
-│                          │ update a datacatalog     │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ UpdateNamedQuery         │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ update a named query     │              │                         │                          │                   │
-│                          │ specified                │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ UpdatePreparedStatement  │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ update a prepared        │              │                         │                          │                   │
-│                          │ statement                │              │                         │                          │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼─────────────────────────┼──────────────────────────┼───────────────────┤
-│ UpdateWorkGroup          │ Grants permission to     │ Write        │ workgroup*              │                          │                   │
-│                          │ update a workgroup       │              │                         │                          │                   │
-└──────────────────────────┴──────────────────────────┴──────────────┴─────────────────────────┴──────────────────────────┴───────────────────┘
+                                                     Last updated: 2022-10-24T01:56:41+00:00                                                     
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃                          ┃                          ┃              ┃ Resource types            ┃                          ┃                   ┃
+┃ Actions                  ┃ Description              ┃ Access level ┃ (*required)               ┃ Condition keys           ┃ Dependent actions ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ BatchGetNamedQuery       │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ information about one or │              │                           │                          │                   │
+│                          │ more named queries       │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ BatchGetPreparedStateme… │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ information about one or │              │                           │                          │                   │
+│                          │ more prepared statements │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ BatchGetQueryExecution   │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ information about one or │              │                           │                          │                   │
+│                          │ more query executions    │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ CreateDataCatalog        │ Grants permission to     │ Write        │ datacatalog*              │                          │                   │
+│                          │ create a datacatalog     │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ CreateDataCatalog        │ Grants permission to     │ Write        │                           │ aws:RequestTag/${TagKey} │                   │
+│                          │ create a datacatalog     │              │                           │ aws:TagKeys              │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ CreateNamedQuery         │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ create a named query     │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ CreatePreparedStatement  │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ create a prepared        │              │                           │                          │                   │
+│                          │ statement                │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ CreateWorkGroup          │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ create a workgroup       │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ CreateWorkGroup          │ Grants permission to     │ Write        │                           │ aws:RequestTag/${TagKey} │                   │
+│                          │ create a workgroup       │              │                           │ aws:TagKeys              │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ DeleteDataCatalog        │ Grants permission to     │ Write        │ datacatalog*              │                          │                   │
+│                          │ delete a datacatalog     │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ DeleteNamedQuery         │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ delete a named query     │              │                           │                          │                   │
+│                          │ specified                │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ DeletePreparedStatement  │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ delete a prepared        │              │                           │                          │                   │
+│                          │ statement specified      │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ DeleteWorkGroup          │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ delete a workgroup       │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetDataCatalog           │ Grants permission to get │ Read         │ datacatalog*              │                          │                   │
+│                          │ a datacatalog            │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetDatabase              │ Grants permission to get │ Read         │ datacatalog*              │                          │                   │
+│                          │ a database for a given   │              │                           │                          │                   │
+│                          │ datacatalog              │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetNamedQuery            │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ information about the    │              │                           │                          │                   │
+│                          │ specified named query    │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetPreparedStatement     │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ information about the    │              │                           │                          │                   │
+│                          │ specified prepared       │              │                           │                          │                   │
+│                          │ statement                │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetQueryExecution        │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ information about the    │              │                           │                          │                   │
+│                          │ specified query          │              │                           │                          │                   │
+│                          │ execution                │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetQueryResults          │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ the query results        │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetQueryResultsStream    │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ the query results stream │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetQueryRuntimeStatisti… │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ runtime statistics for   │              │                           │                          │                   │
+│                          │ the specified query      │              │                           │                          │                   │
+│                          │ execution                │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetTableMetadata         │ Grants permission to get │ Read         │ datacatalog*              │                          │                   │
+│                          │ a metadata about a table │              │                           │                          │                   │
+│                          │ for a given datacatalog  │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ GetWorkGroup             │ Grants permission to get │ Read         │ workgroup*                │                          │                   │
+│                          │ a workgroup              │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListDataCatalogs         │ Grants permission to     │ List         │                           │                          │                   │
+│                          │ return a list of         │              │                           │                          │                   │
+│                          │ datacatalogs for the     │              │                           │                          │                   │
+│                          │ specified AWS account    │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListDatabases            │ Grants permission to     │ List         │ datacatalog*              │                          │                   │
+│                          │ return a list of         │              │                           │                          │                   │
+│                          │ databases for a given    │              │                           │                          │                   │
+│                          │ datacatalog              │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListEngineVersions       │ Grants permission to     │ Read         │                           │                          │                   │
+│                          │ return a list of athena  │              │                           │                          │                   │
+│                          │ engine versions for the  │              │                           │                          │                   │
+│                          │ specified AWS account    │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListNamedQueries         │ Grants permission to     │ List         │ workgroup*                │                          │                   │
+│                          │ return a list of named   │              │                           │                          │                   │
+│                          │ queries in Amazon Athena │              │                           │                          │                   │
+│                          │ for the specified AWS    │              │                           │                          │                   │
+│                          │ account                  │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListPreparedStatements   │ Grants permission to     │ List         │ workgroup*                │                          │                   │
+│                          │ return a list of         │              │                           │                          │                   │
+│                          │ prepared statements for  │              │                           │                          │                   │
+│                          │ the specified workgroup  │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListQueryExecutions      │ Grants permission to     │ Read         │ workgroup*                │                          │                   │
+│                          │ return a list of query   │              │                           │                          │                   │
+│                          │ executions for the       │              │                           │                          │                   │
+│                          │ specified AWS account    │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListTableMetadata        │ Grants permission to     │ Read         │ datacatalog*              │                          │                   │
+│                          │ return a list of table   │              │                           │                          │                   │
+│                          │ metadata in a database   │              │                           │                          │                   │
+│                          │ for a given datacatalog  │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListTagsForResource      │ Grants permission to     │ Read         │ datacatalog*              │                          │                   │
+│                          │ return a list of tags    │              │                           │                          │                   │
+│                          │ for a resource           │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListTagsForResource      │ Grants permission to     │ Read         │ workgroup*                │                          │                   │
+│                          │ return a list of tags    │              │                           │                          │                   │
+│                          │ for a resource           │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ ListWorkGroups           │ Grants permission to     │ List         │                           │                          │                   │
+│                          │ return a list of         │              │                           │                          │                   │
+│                          │ workgroups for the       │              │                           │                          │                   │
+│                          │ specified AWS account    │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ StartQueryExecution      │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ start a query execution  │              │                           │                          │                   │
+│                          │ using an SQL query       │              │                           │                          │                   │
+│                          │ provided as a string     │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ StopQueryExecution       │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ stop the specified query │              │                           │                          │                   │
+│                          │ execution                │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ TagResource              │ Grants permission to add │ Tagging      │ datacatalog*              │                          │                   │
+│                          │ a tag to a resource      │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ TagResource              │ Grants permission to add │ Tagging      │ workgroup*                │                          │                   │
+│                          │ a tag to a resource      │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ TagResource              │ Grants permission to add │ Tagging      │                           │ aws:RequestTag/${TagKey} │                   │
+│                          │ a tag to a resource      │              │                           │ aws:TagKeys              │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ UntagResource            │ Grants permission to     │ Tagging      │ datacatalog*              │                          │                   │
+│                          │ remove a tag from a      │              │                           │                          │                   │
+│                          │ resource                 │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ UntagResource            │ Grants permission to     │ Tagging      │ workgroup*                │                          │                   │
+│                          │ remove a tag from a      │              │                           │                          │                   │
+│                          │ resource                 │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ UntagResource            │ Grants permission to     │ Tagging      │                           │ aws:TagKeys              │                   │
+│                          │ remove a tag from a      │              │                           │                          │                   │
+│                          │ resource                 │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ UpdateDataCatalog        │ Grants permission to     │ Write        │ datacatalog*              │                          │                   │
+│                          │ update a datacatalog     │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ UpdateNamedQuery         │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ update a named query     │              │                           │                          │                   │
+│                          │ specified                │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ UpdatePreparedStatement  │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ update a prepared        │              │                           │                          │                   │
+│                          │ statement                │              │                           │                          │                   │
+├──────────────────────────┼──────────────────────────┼──────────────┼───────────────────────────┼──────────────────────────┼───────────────────┤
+│ UpdateWorkGroup          │ Grants permission to     │ Write        │ workgroup*                │                          │                   │
+│                          │ update a workgroup       │              │                           │                          │                   │
+└──────────────────────────┴──────────────────────────┴──────────────┴───────────────────────────┴──────────────────────────┴───────────────────┘
