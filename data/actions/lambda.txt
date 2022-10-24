@@ -1,340 +1,471 @@
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
-┃ Actions                            ┃ Description                          ┃ Access level           ┃ Resource types (*required) ┃ Condition keys                       ┃ Dependent actions ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
-│ AddLayerVersionPermission          │ Grants permission to add permissions │ Permissions management │ layerVersion*              │                                      │                   │
-│                                    │ to the resource-based policy of a    │                        │                            │                                      │                   │
-│                                    │ version of an AWS Lambda layer       │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ AddPermission                      │ Grants permission to give an AWS     │ Permissions management │ function*                  │                                      │                   │
-│                                    │ service or another account           │                        │                            │                                      │                   │
-│                                    │ permission to use an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ AddPermission                      │ Grants permission to give an AWS     │ Permissions management │                            │ lambda:Principal                     │                   │
-│                                    │ service or another account           │                        │                            │ lambda:FunctionUrlAuthType           │                   │
-│                                    │ permission to use an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ CreateAlias                        │ Grants permission to create an alias │ Write                  │ function*                  │                                      │                   │
-│                                    │ for a Lambda function version        │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ CreateCodeSigningConfig            │ Grants permission to create an AWS   │ Write                  │                            │                                      │                   │
-│                                    │ Lambda code signing config           │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ CreateEventSourceMapping           │ Grants permission to create a        │ Write                  │                            │ lambda:FunctionArn                   │                   │
-│                                    │ mapping between an event source and  │                        │                            │                                      │                   │
-│                                    │ an AWS Lambda function               │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ CreateFunction                     │ Grants permission to create an AWS   │ Write                  │ function*                  │                                      │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ CreateFunction                     │ Grants permission to create an AWS   │ Write                  │                            │ lambda:Layer  lambda:VpcIds          │                   │
-│                                    │ Lambda function                      │                        │                            │ lambda:SubnetIds                     │                   │
-│                                    │                                      │                        │                            │ lambda:SecurityGroupIds              │                   │
-│                                    │                                      │                        │                            │ lambda:CodeSigningConfigArn          │                   │
-│                                    │                                      │                        │                            │ aws:RequestTag/${TagKey}             │                   │
-│                                    │                                      │                        │                            │ aws:TagKeys                          │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ CreateFunctionUrlConfig            │ Grants permission to create a        │ Write                  │ function*                  │                                      │                   │
-│                                    │ function url configuration for a     │                        │                            │                                      │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ CreateFunctionUrlConfig            │ Grants permission to create a        │ Write                  │                            │ lambda:FunctionUrlAuthType           │                   │
-│                                    │ function url configuration for a     │                        │                            │ lambda:FunctionArn                   │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteAlias                        │ Grants permission to delete an AWS   │ Write                  │ function*                  │                                      │                   │
-│                                    │ Lambda function alias                │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteCodeSigningConfig            │ Grants permission to delete an AWS   │ Write                  │ code signing config*       │                                      │                   │
-│                                    │ Lambda code signing config           │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteEventSourceMapping           │ Grants permission to delete an AWS   │ Write                  │ eventSourceMapping*        │                                      │                   │
-│                                    │ Lambda event source mapping          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteEventSourceMapping           │ Grants permission to delete an AWS   │ Write                  │                            │ lambda:FunctionArn                   │                   │
-│                                    │ Lambda event source mapping          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteFunction                     │ Grants permission to delete an AWS   │ Write                  │ function*                  │                                      │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteFunctionCodeSigningConfig    │ Grants permission to detach a code   │ Write                  │ function*                  │                                      │                   │
-│                                    │ signing config from an AWS Lambda    │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteFunctionConcurrency          │ Grants permission to remove a        │ Write                  │ function*                  │                                      │                   │
-│                                    │ concurrent execution limit from an   │                        │                            │                                      │                   │
-│                                    │ AWS Lambda function                  │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteFunctionEventInvokeConfig    │ Grants permission to delete the      │ Write                  │ function*                  │                                      │                   │
-│                                    │ configuration for asynchronous       │                        │                            │                                      │                   │
-│                                    │ invocation for an AWS Lambda         │                        │                            │                                      │                   │
-│                                    │ function, version, or alias          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteFunctionUrlConfig            │ Grants permission to delete function │ Write                  │ function*                  │                                      │                   │
-│                                    │ url configuration for a Lambda       │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteFunctionUrlConfig            │ Grants permission to delete function │ Write                  │                            │ lambda:FunctionUrlAuthType           │                   │
-│                                    │ url configuration for a Lambda       │                        │                            │ lambda:FunctionArn                   │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteLayerVersion                 │ Grants permission to delete a        │ Write                  │ layerVersion*              │                                      │                   │
-│                                    │ version of an AWS Lambda layer       │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteProvisionedConcurrencyConfig │ Grants permission to delete the      │ Write                  │ function version           │                                      │                   │
-│                                    │ provisioned concurrency              │                        │                            │                                      │                   │
-│                                    │ configuration for an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DeleteProvisionedConcurrencyConfig │ Grants permission to delete the      │ Write                  │ function alias             │                                      │                   │
-│                                    │ provisioned concurrency              │                        │                            │                                      │                   │
-│                                    │ configuration for an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ DisableReplication                 │ Grants permission to disable         │ Permissions management │ function*                  │                                      │                   │
-│                                    │ replication for a Lambda@Edge        │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ EnableReplication                  │ Grants permission to enable          │ Permissions management │ function*                  │                                      │                   │
-│                                    │ replication for a Lambda@Edge        │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetAccountSettings                 │ Grants permission to view details    │ Read                   │                            │                                      │                   │
-│                                    │ about an account's limits and usage  │                        │                            │                                      │                   │
-│                                    │ in an AWS Region                     │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetAlias                           │ Grants permission to view details    │ Read                   │ function*                  │                                      │                   │
-│                                    │ about an AWS Lambda function alias   │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetCodeSigningConfig               │ Grants permission to view details    │ Read                   │ code signing config*       │                                      │                   │
-│                                    │ about an AWS Lambda code signing     │                        │                            │                                      │                   │
-│                                    │ config                               │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetEventSourceMapping              │ Grants permission to view details    │ Read                   │ eventSourceMapping*        │                                      │                   │
-│                                    │ about an AWS Lambda event source     │                        │                            │                                      │                   │
-│                                    │ mapping                              │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetEventSourceMapping              │ Grants permission to view details    │ Read                   │                            │ lambda:FunctionArn                   │                   │
-│                                    │ about an AWS Lambda event source     │                        │                            │                                      │                   │
-│                                    │ mapping                              │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetFunction                        │ Grants permission to view details    │ Read                   │ function*                  │                                      │                   │
-│                                    │ about an AWS Lambda function         │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetFunctionCodeSigningConfig       │ Grants permission to view the code   │ Read                   │ function*                  │                                      │                   │
-│                                    │ signing config arn attached to an    │                        │                            │                                      │                   │
-│                                    │ AWS Lambda function                  │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetFunctionConcurrency             │ Grants permission to view details    │ Read                   │ function*                  │                                      │                   │
-│                                    │ about the reserved concurrency       │                        │                            │                                      │                   │
-│                                    │ configuration for a function         │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetFunctionConfiguration           │ Grants permission to view details    │ Read                   │ function*                  │                                      │                   │
-│                                    │ about the version-specific settings  │                        │                            │                                      │                   │
-│                                    │ of an AWS Lambda function or version │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetFunctionEventInvokeConfig       │ Grants permission to view the        │ Read                   │ function*                  │                                      │                   │
-│                                    │ configuration for asynchronous       │                        │                            │                                      │                   │
-│                                    │ invocation for a function, version,  │                        │                            │                                      │                   │
-│                                    │ or alias                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetFunctionUrlConfig               │ Grants permission to read function   │ Read                   │ function*                  │                                      │                   │
-│                                    │ url configuration for a Lambda       │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetFunctionUrlConfig               │ Grants permission to read function   │ Read                   │                            │ lambda:FunctionUrlAuthType           │                   │
-│                                    │ url configuration for a Lambda       │                        │                            │ lambda:FunctionArn                   │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetLayerVersion                    │ Grants permission to view details    │ Read                   │ layerVersion*              │                                      │                   │
-│                                    │ about a version of an AWS Lambda     │                        │                            │                                      │                   │
-│                                    │ layer. Note this action also         │                        │                            │                                      │                   │
-│                                    │ supports GetLayerVersionByArn API    │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetLayerVersionPolicy              │ Grants permission to view the        │ Read                   │ layerVersion*              │                                      │                   │
-│                                    │ resource-based policy for a version  │                        │                            │                                      │                   │
-│                                    │ of an AWS Lambda layer               │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetPolicy                          │ Grants permission to view the        │ Read                   │ function*                  │                                      │                   │
-│                                    │ resource-based policy for an AWS     │                        │                            │                                      │                   │
-│                                    │ Lambda function, version, or alias   │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetProvisionedConcurrencyConfig    │ Grants permission to view the        │ Read                   │ function alias             │                                      │                   │
-│                                    │ provisioned concurrency              │                        │                            │                                      │                   │
-│                                    │ configuration for an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function's alias or version          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ GetProvisionedConcurrencyConfig    │ Grants permission to view the        │ Read                   │ function version           │                                      │                   │
-│                                    │ provisioned concurrency              │                        │                            │                                      │                   │
-│                                    │ configuration for an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function's alias or version          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ InvokeAsync                        │ Grants permission to invoke a        │ Write                  │ function*                  │                                      │                   │
-│                                    │ function asynchronously (Deprecated) │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ InvokeFunction                     │ Grants permission to invoke an AWS   │ Write                  │ function*                  │                                      │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ InvokeFunctionUrl                  │ Grants permission to invoke an AWS   │ Write                  │ function*                  │                                      │                   │
-│                                    │ Lambda function through url          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ InvokeFunctionUrl                  │ Grants permission to invoke an AWS   │ Write                  │                            │ lambda:FunctionUrlAuthType           │                   │
-│                                    │ Lambda function through url          │                        │                            │ lambda:FunctionArn                   │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListAliases                        │ Grants permission to retrieve a list │ List                   │ function*                  │                                      │                   │
-│                                    │ of aliases for an AWS Lambda         │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListCodeSigningConfigs             │ Grants permission to retrieve a list │ List                   │                            │                                      │                   │
-│                                    │ of AWS Lambda code signing configs   │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListEventSourceMappings            │ Grants permission to retrieve a list │ List                   │                            │                                      │                   │
-│                                    │ of AWS Lambda event source mappings  │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListFunctionEventInvokeConfigs     │ Grants permission to retrieve a list │ List                   │ function*                  │                                      │                   │
-│                                    │ of configurations for asynchronous   │                        │                            │                                      │                   │
-│                                    │ invocation for a function            │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListFunctionUrlConfigs             │ Grants permission to read function   │ List                   │ function*                  │                                      │                   │
-│                                    │ url configurations for a function    │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListFunctionUrlConfigs             │ Grants permission to read function   │ List                   │                            │ lambda:FunctionUrlAuthType           │                   │
-│                                    │ url configurations for a function    │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListFunctions                      │ Grants permission to retrieve a list │ List                   │                            │                                      │                   │
-│                                    │ of AWS Lambda functions, with the    │                        │                            │                                      │                   │
-│                                    │ version-specific configuration of    │                        │                            │                                      │                   │
-│                                    │ each function                        │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListFunctionsByCodeSigningConfig   │ Grants permission to retrieve a list │ List                   │ code signing config*       │                                      │                   │
-│                                    │ of AWS Lambda functions by the code  │                        │                            │                                      │                   │
-│                                    │ signing config assigned              │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListLayerVersions                  │ Grants permission to retrieve a list │ List                   │                            │                                      │                   │
-│                                    │ of versions of an AWS Lambda layer   │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListLayers                         │ Grants permission to retrieve a list │ List                   │                            │                                      │                   │
-│                                    │ of AWS Lambda layers, with details   │                        │                            │                                      │                   │
-│                                    │ about the latest version of each     │                        │                            │                                      │                   │
-│                                    │ layer                                │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListProvisionedConcurrencyConfigs  │ Grants permission to retrieve a list │ List                   │ function*                  │                                      │                   │
-│                                    │ of provisioned concurrency           │                        │                            │                                      │                   │
-│                                    │ configurations for an AWS Lambda     │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListTags                           │ Grants permission to retrieve a list │ Read                   │ function*                  │                                      │                   │
-│                                    │ of tags for an AWS Lambda function   │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ ListVersionsByFunction             │ Grants permission to retrieve a list │ List                   │ function*                  │                                      │                   │
-│                                    │ of versions for an AWS Lambda        │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PublishLayerVersion                │ Grants permission to create an AWS   │ Write                  │ layer*                     │                                      │                   │
-│                                    │ Lambda layer                         │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PublishVersion                     │ Grants permission to create an AWS   │ Write                  │ function*                  │                                      │                   │
-│                                    │ Lambda function version              │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PutFunctionCodeSigningConfig       │ Grants permission to attach a code   │ Write                  │ code signing config*       │                                      │                   │
-│                                    │ signing config to an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PutFunctionCodeSigningConfig       │ Grants permission to attach a code   │ Write                  │ function*                  │                                      │                   │
-│                                    │ signing config to an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PutFunctionCodeSigningConfig       │ Grants permission to attach a code   │ Write                  │                            │ lambda:CodeSigningConfigArn          │                   │
-│                                    │ signing config to an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PutFunctionConcurrency             │ Grants permission to configure       │ Write                  │ function*                  │                                      │                   │
-│                                    │ reserved concurrency for an AWS      │                        │                            │                                      │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PutFunctionEventInvokeConfig       │ Grants permission to configures      │ Write                  │ function*                  │                                      │                   │
-│                                    │ options for asynchronous invocation  │                        │                            │                                      │                   │
-│                                    │ on an AWS Lambda function, version,  │                        │                            │                                      │                   │
-│                                    │ or alias                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PutProvisionedConcurrencyConfig    │ Grants permission to configure       │ Write                  │ function alias             │                                      │                   │
-│                                    │ provisioned concurrency for an AWS   │                        │                            │                                      │                   │
-│                                    │ Lambda function's alias or version   │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ PutProvisionedConcurrencyConfig    │ Grants permission to configure       │ Write                  │ function version           │                                      │                   │
-│                                    │ provisioned concurrency for an AWS   │                        │                            │                                      │                   │
-│                                    │ Lambda function's alias or version   │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ RemoveLayerVersionPermission       │ Grants permission to remove a        │ Permissions management │ layerVersion*              │                                      │                   │
-│                                    │ statement from the permissions       │                        │                            │                                      │                   │
-│                                    │ policy for a version of an AWS       │                        │                            │                                      │                   │
-│                                    │ Lambda layer                         │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ RemovePermission                   │ Grants permission to revoke          │ Permissions management │ function*                  │                                      │                   │
-│                                    │ function-use permission from an AWS  │                        │                            │                                      │                   │
-│                                    │ service or another account           │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ RemovePermission                   │ Grants permission to revoke          │ Permissions management │                            │ lambda:Principal                     │                   │
-│                                    │ function-use permission from an AWS  │                        │                            │ lambda:FunctionUrlAuthType           │                   │
-│                                    │ service or another account           │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ TagResource                        │ Grants permission to add tags to an  │ Tagging                │ function*                  │                                      │                   │
-│                                    │ AWS Lambda function                  │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ TagResource                        │ Grants permission to add tags to an  │ Tagging                │                            │ aws:RequestTag/${TagKey}             │                   │
-│                                    │ AWS Lambda function                  │                        │                            │ aws:TagKeys                          │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UntagResource                      │ Grants permission to remove tags     │ Tagging                │ function*                  │                                      │                   │
-│                                    │ from an AWS Lambda function          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UntagResource                      │ Grants permission to remove tags     │ Tagging                │                            │ aws:TagKeys                          │                   │
-│                                    │ from an AWS Lambda function          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateAlias                        │ Grants permission to update the      │ Write                  │ function*                  │                                      │                   │
-│                                    │ configuration of an AWS Lambda       │                        │                            │                                      │                   │
-│                                    │ function's alias                     │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateCodeSigningConfig            │ Grants permission to update an AWS   │ Write                  │ code signing config*       │                                      │                   │
-│                                    │ Lambda code signing config           │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateEventSourceMapping           │ Grants permission to update the      │ Write                  │ eventSourceMapping*        │                                      │                   │
-│                                    │ configuration of an AWS Lambda event │                        │                            │                                      │                   │
-│                                    │ source mapping                       │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateEventSourceMapping           │ Grants permission to update the      │ Write                  │                            │ lambda:FunctionArn                   │                   │
-│                                    │ configuration of an AWS Lambda event │                        │                            │                                      │                   │
-│                                    │ source mapping                       │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateFunctionCode                 │ Grants permission to update the code │ Write                  │ function*                  │                                      │                   │
-│                                    │ of an AWS Lambda function            │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateFunctionCodeSigningConfig    │ Grants permission to update the code │ Write                  │ code signing config*       │                                      │                   │
-│                                    │ signing config of an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateFunctionCodeSigningConfig    │ Grants permission to update the code │ Write                  │ function*                  │                                      │                   │
-│                                    │ signing config of an AWS Lambda      │                        │                            │                                      │                   │
-│                                    │ function                             │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateFunctionConfiguration        │ Grants permission to modify the      │ Write                  │ function*                  │                                      │                   │
-│                                    │ version-specific settings of an AWS  │                        │                            │                                      │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateFunctionConfiguration        │ Grants permission to modify the      │ Write                  │                            │ lambda:Layer  lambda:VpcIds          │                   │
-│                                    │ version-specific settings of an AWS  │                        │                            │ lambda:SubnetIds                     │                   │
-│                                    │ Lambda function                      │                        │                            │ lambda:SecurityGroupIds              │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateFunctionEventInvokeConfig    │ Grants permission to modify the      │ Write                  │ function*                  │                                      │                   │
-│                                    │ configuration for asynchronous       │                        │                            │                                      │                   │
-│                                    │ invocation for an AWS Lambda         │                        │                            │                                      │                   │
-│                                    │ function, version, or alias          │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateFunctionUrlConfig            │ Grants permission to update a        │ Write                  │ function*                  │                                      │                   │
-│                                    │ function url configuration for a     │                        │                            │                                      │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-├────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼──────────────────────────────────────┼───────────────────┤
-│ UpdateFunctionUrlConfig            │ Grants permission to update a        │ Write                  │                            │ lambda:FunctionUrlAuthType           │                   │
-│                                    │ function url configuration for a     │                        │                            │ lambda:FunctionArn                   │                   │
-│                                    │ Lambda function                      │                        │                            │                                      │                   │
-└────────────────────────────────────┴──────────────────────────────────────┴────────────────────────┴────────────────────────────┴──────────────────────────────────────┴───────────────────┘
+                                                    Last updated: 2022-10-24T01:47:11+00:00                                                    
+┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃                       ┃                        ┃                       ┃ Resource types         ┃                       ┃                   ┃
+┃ Actions               ┃ Description            ┃ Access level          ┃ (*required)            ┃ Condition keys        ┃ Dependent actions ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ AddLayerVersionPermi… │ Grants permission to   │ Permissions           │ layerVersion*          │                       │                   │
+│                       │ add permissions to the │ management            │                        │                       │                   │
+│                       │ resource-based policy  │                       │                        │                       │                   │
+│                       │ of a version of an AWS │                       │                        │                       │                   │
+│                       │ Lambda layer           │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ AddPermission         │ Grants permission to   │ Permissions           │ function*              │                       │                   │
+│                       │ give an AWS service or │ management            │                        │                       │                   │
+│                       │ another account        │                       │                        │                       │                   │
+│                       │ permission to use an   │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ AddPermission         │ Grants permission to   │ Permissions           │                        │ lambda:Principal      │                   │
+│                       │ give an AWS service or │ management            │                        │ lambda:FunctionUrlAu… │                   │
+│                       │ another account        │                       │                        │                       │                   │
+│                       │ permission to use an   │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreateAlias           │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ create an alias for a  │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+│                       │ version                │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreateCodeSigningCon… │ Grants permission to   │ Write                 │                        │                       │                   │
+│                       │ create an AWS Lambda   │                       │                        │                       │                   │
+│                       │ code signing config    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreateEventSourceMap… │ Grants permission to   │ Write                 │                        │ lambda:FunctionArn    │                   │
+│                       │ create a mapping       │                       │                        │                       │                   │
+│                       │ between an event       │                       │                        │                       │                   │
+│                       │ source and an AWS      │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreateFunction        │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ create an AWS Lambda   │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreateFunction        │ Grants permission to   │ Write                 │                        │ lambda:Layer          │                   │
+│                       │ create an AWS Lambda   │                       │                        │ lambda:VpcIds         │                   │
+│                       │ function               │                       │                        │ lambda:SubnetIds      │                   │
+│                       │                        │                       │                        │ lambda:SecurityGroup… │                   │
+│                       │                        │                       │                        │ lambda:CodeSigningCo… │                   │
+│                       │                        │                       │                        │ aws:RequestTag/${Tag… │                   │
+│                       │                        │                       │                        │ aws:TagKeys           │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreateFunctionUrlCon… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ create a function url  │                       │                        │                       │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreateFunctionUrlCon… │ Grants permission to   │ Write                 │                        │ lambda:FunctionUrlAu… │                   │
+│                       │ create a function url  │                       │                        │ lambda:FunctionArn    │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteAlias           │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ delete an AWS Lambda   │                       │                        │                       │                   │
+│                       │ function alias         │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteCodeSigningCon… │ Grants permission to   │ Write                 │ code signing config*   │                       │                   │
+│                       │ delete an AWS Lambda   │                       │                        │                       │                   │
+│                       │ code signing config    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteEventSourceMap… │ Grants permission to   │ Write                 │ eventSourceMapping*    │                       │                   │
+│                       │ delete an AWS Lambda   │                       │                        │                       │                   │
+│                       │ event source mapping   │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteEventSourceMap… │ Grants permission to   │ Write                 │                        │ lambda:FunctionArn    │                   │
+│                       │ delete an AWS Lambda   │                       │                        │                       │                   │
+│                       │ event source mapping   │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteFunction        │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ delete an AWS Lambda   │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteFunctionCodeSi… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ detach a code signing  │                       │                        │                       │                   │
+│                       │ config from an AWS     │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteFunctionConcur… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ remove a concurrent    │                       │                        │                       │                   │
+│                       │ execution limit from   │                       │                        │                       │                   │
+│                       │ an AWS Lambda function │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteFunctionEventI… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ delete the             │                       │                        │                       │                   │
+│                       │ configuration for      │                       │                        │                       │                   │
+│                       │ asynchronous           │                       │                        │                       │                   │
+│                       │ invocation for an AWS  │                       │                        │                       │                   │
+│                       │ Lambda function,       │                       │                        │                       │                   │
+│                       │ version, or alias      │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteFunctionUrlCon… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ delete function url    │                       │                        │                       │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteFunctionUrlCon… │ Grants permission to   │ Write                 │                        │ lambda:FunctionUrlAu… │                   │
+│                       │ delete function url    │                       │                        │ lambda:FunctionArn    │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteLayerVersion    │ Grants permission to   │ Write                 │ layerVersion*          │                       │                   │
+│                       │ delete a version of an │                       │                        │                       │                   │
+│                       │ AWS Lambda layer       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteProvisionedCon… │ Grants permission to   │ Write                 │ function version       │                       │                   │
+│                       │ delete the provisioned │                       │                        │                       │                   │
+│                       │ concurrency            │                       │                        │                       │                   │
+│                       │ configuration for an   │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteProvisionedCon… │ Grants permission to   │ Write                 │ function alias         │                       │                   │
+│                       │ delete the provisioned │                       │                        │                       │                   │
+│                       │ concurrency            │                       │                        │                       │                   │
+│                       │ configuration for an   │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DisableReplication    │ Grants permission to   │ Permissions           │ function*              │                       │                   │
+│                       │ disable replication    │ management            │                        │                       │                   │
+│                       │ for a Lambda@Edge      │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ EnableReplication     │ Grants permission to   │ Permissions           │ function*              │                       │                   │
+│                       │ enable replication for │ management            │                        │                       │                   │
+│                       │ a Lambda@Edge function │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetAccountSettings    │ Grants permission to   │ Read                  │                        │                       │                   │
+│                       │ view details about an  │                       │                        │                       │                   │
+│                       │ account's limits and   │                       │                        │                       │                   │
+│                       │ usage in an AWS Region │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetAlias              │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ view details about an  │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+│                       │ alias                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetCodeSigningConfig  │ Grants permission to   │ Read                  │ code signing config*   │                       │                   │
+│                       │ view details about an  │                       │                        │                       │                   │
+│                       │ AWS Lambda code        │                       │                        │                       │                   │
+│                       │ signing config         │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetEventSourceMapping │ Grants permission to   │ Read                  │ eventSourceMapping*    │                       │                   │
+│                       │ view details about an  │                       │                        │                       │                   │
+│                       │ AWS Lambda event       │                       │                        │                       │                   │
+│                       │ source mapping         │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetEventSourceMapping │ Grants permission to   │ Read                  │                        │ lambda:FunctionArn    │                   │
+│                       │ view details about an  │                       │                        │                       │                   │
+│                       │ AWS Lambda event       │                       │                        │                       │                   │
+│                       │ source mapping         │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetFunction           │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ view details about an  │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetFunctionCodeSigni… │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ view the code signing  │                       │                        │                       │                   │
+│                       │ config arn attached to │                       │                        │                       │                   │
+│                       │ an AWS Lambda function │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetFunctionConcurren… │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ view details about the │                       │                        │                       │                   │
+│                       │ reserved concurrency   │                       │                        │                       │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetFunctionConfigura… │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ view details about the │                       │                        │                       │                   │
+│                       │ version-specific       │                       │                        │                       │                   │
+│                       │ settings of an AWS     │                       │                        │                       │                   │
+│                       │ Lambda function or     │                       │                        │                       │                   │
+│                       │ version                │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetFunctionEventInvo… │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ view the configuration │                       │                        │                       │                   │
+│                       │ for asynchronous       │                       │                        │                       │                   │
+│                       │ invocation for a       │                       │                        │                       │                   │
+│                       │ function, version, or  │                       │                        │                       │                   │
+│                       │ alias                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetFunctionUrlConfig  │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ read function url      │                       │                        │                       │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetFunctionUrlConfig  │ Grants permission to   │ Read                  │                        │ lambda:FunctionUrlAu… │                   │
+│                       │ read function url      │                       │                        │ lambda:FunctionArn    │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetLayerVersion       │ Grants permission to   │ Read                  │ layerVersion*          │                       │                   │
+│                       │ view details about a   │                       │                        │                       │                   │
+│                       │ version of an AWS      │                       │                        │                       │                   │
+│                       │ Lambda layer. Note     │                       │                        │                       │                   │
+│                       │ this action also       │                       │                        │                       │                   │
+│                       │ supports               │                       │                        │                       │                   │
+│                       │ GetLayerVersionByArn   │                       │                        │                       │                   │
+│                       │ API                    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetLayerVersionPolicy │ Grants permission to   │ Read                  │ layerVersion*          │                       │                   │
+│                       │ view the               │                       │                        │                       │                   │
+│                       │ resource-based policy  │                       │                        │                       │                   │
+│                       │ for a version of an    │                       │                        │                       │                   │
+│                       │ AWS Lambda layer       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetPolicy             │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ view the               │                       │                        │                       │                   │
+│                       │ resource-based policy  │                       │                        │                       │                   │
+│                       │ for an AWS Lambda      │                       │                        │                       │                   │
+│                       │ function, version, or  │                       │                        │                       │                   │
+│                       │ alias                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetProvisionedConcur… │ Grants permission to   │ Read                  │ function alias         │                       │                   │
+│                       │ view the provisioned   │                       │                        │                       │                   │
+│                       │ concurrency            │                       │                        │                       │                   │
+│                       │ configuration for an   │                       │                        │                       │                   │
+│                       │ AWS Lambda function's  │                       │                        │                       │                   │
+│                       │ alias or version       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetProvisionedConcur… │ Grants permission to   │ Read                  │ function version       │                       │                   │
+│                       │ view the provisioned   │                       │                        │                       │                   │
+│                       │ concurrency            │                       │                        │                       │                   │
+│                       │ configuration for an   │                       │                        │                       │                   │
+│                       │ AWS Lambda function's  │                       │                        │                       │                   │
+│                       │ alias or version       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ InvokeAsync           │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ invoke a function      │                       │                        │                       │                   │
+│                       │ asynchronously         │                       │                        │                       │                   │
+│                       │ (Deprecated)           │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ InvokeFunction        │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ invoke an AWS Lambda   │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ InvokeFunctionUrl     │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ invoke an AWS Lambda   │                       │                        │                       │                   │
+│                       │ function through url   │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ InvokeFunctionUrl     │ Grants permission to   │ Write                 │                        │ lambda:FunctionUrlAu… │                   │
+│                       │ invoke an AWS Lambda   │                       │                        │ lambda:FunctionArn    │                   │
+│                       │ function through url   │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListAliases           │ Grants permission to   │ List                  │ function*              │                       │                   │
+│                       │ retrieve a list of     │                       │                        │                       │                   │
+│                       │ aliases for an AWS     │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListCodeSigningConfi… │ Grants permission to   │ List                  │                        │                       │                   │
+│                       │ retrieve a list of AWS │                       │                        │                       │                   │
+│                       │ Lambda code signing    │                       │                        │                       │                   │
+│                       │ configs                │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListEventSourceMappi… │ Grants permission to   │ List                  │                        │                       │                   │
+│                       │ retrieve a list of AWS │                       │                        │                       │                   │
+│                       │ Lambda event source    │                       │                        │                       │                   │
+│                       │ mappings               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListFunctionEventInv… │ Grants permission to   │ List                  │ function*              │                       │                   │
+│                       │ retrieve a list of     │                       │                        │                       │                   │
+│                       │ configurations for     │                       │                        │                       │                   │
+│                       │ asynchronous           │                       │                        │                       │                   │
+│                       │ invocation for a       │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListFunctionUrlConfi… │ Grants permission to   │ List                  │ function*              │                       │                   │
+│                       │ read function url      │                       │                        │                       │                   │
+│                       │ configurations for a   │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListFunctionUrlConfi… │ Grants permission to   │ List                  │                        │ lambda:FunctionUrlAu… │                   │
+│                       │ read function url      │                       │                        │                       │                   │
+│                       │ configurations for a   │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListFunctions         │ Grants permission to   │ List                  │                        │                       │                   │
+│                       │ retrieve a list of AWS │                       │                        │                       │                   │
+│                       │ Lambda functions, with │                       │                        │                       │                   │
+│                       │ the version-specific   │                       │                        │                       │                   │
+│                       │ configuration of each  │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListFunctionsByCodeS… │ Grants permission to   │ List                  │ code signing config*   │                       │                   │
+│                       │ retrieve a list of AWS │                       │                        │                       │                   │
+│                       │ Lambda functions by    │                       │                        │                       │                   │
+│                       │ the code signing       │                       │                        │                       │                   │
+│                       │ config assigned        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListLayerVersions     │ Grants permission to   │ List                  │                        │                       │                   │
+│                       │ retrieve a list of     │                       │                        │                       │                   │
+│                       │ versions of an AWS     │                       │                        │                       │                   │
+│                       │ Lambda layer           │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListLayers            │ Grants permission to   │ List                  │                        │                       │                   │
+│                       │ retrieve a list of AWS │                       │                        │                       │                   │
+│                       │ Lambda layers, with    │                       │                        │                       │                   │
+│                       │ details about the      │                       │                        │                       │                   │
+│                       │ latest version of each │                       │                        │                       │                   │
+│                       │ layer                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListProvisionedConcu… │ Grants permission to   │ List                  │ function*              │                       │                   │
+│                       │ retrieve a list of     │                       │                        │                       │                   │
+│                       │ provisioned            │                       │                        │                       │                   │
+│                       │ concurrency            │                       │                        │                       │                   │
+│                       │ configurations for an  │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListTags              │ Grants permission to   │ Read                  │ function*              │                       │                   │
+│                       │ retrieve a list of     │                       │                        │                       │                   │
+│                       │ tags for an AWS Lambda │                       │                        │                       │                   │
+│                       │ function               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListVersionsByFuncti… │ Grants permission to   │ List                  │ function*              │                       │                   │
+│                       │ retrieve a list of     │                       │                        │                       │                   │
+│                       │ versions for an AWS    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PublishLayerVersion   │ Grants permission to   │ Write                 │ layer*                 │                       │                   │
+│                       │ create an AWS Lambda   │                       │                        │                       │                   │
+│                       │ layer                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PublishVersion        │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ create an AWS Lambda   │                       │                        │                       │                   │
+│                       │ function version       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutFunctionCodeSigni… │ Grants permission to   │ Write                 │ code signing config*   │                       │                   │
+│                       │ attach a code signing  │                       │                        │                       │                   │
+│                       │ config to an AWS       │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutFunctionCodeSigni… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ attach a code signing  │                       │                        │                       │                   │
+│                       │ config to an AWS       │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutFunctionCodeSigni… │ Grants permission to   │ Write                 │                        │ lambda:CodeSigningCo… │                   │
+│                       │ attach a code signing  │                       │                        │                       │                   │
+│                       │ config to an AWS       │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutFunctionConcurren… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ configure reserved     │                       │                        │                       │                   │
+│                       │ concurrency for an AWS │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutFunctionEventInvo… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ configures options for │                       │                        │                       │                   │
+│                       │ asynchronous           │                       │                        │                       │                   │
+│                       │ invocation on an AWS   │                       │                        │                       │                   │
+│                       │ Lambda function,       │                       │                        │                       │                   │
+│                       │ version, or alias      │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutProvisionedConcur… │ Grants permission to   │ Write                 │ function alias         │                       │                   │
+│                       │ configure provisioned  │                       │                        │                       │                   │
+│                       │ concurrency for an AWS │                       │                        │                       │                   │
+│                       │ Lambda function's      │                       │                        │                       │                   │
+│                       │ alias or version       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutProvisionedConcur… │ Grants permission to   │ Write                 │ function version       │                       │                   │
+│                       │ configure provisioned  │                       │                        │                       │                   │
+│                       │ concurrency for an AWS │                       │                        │                       │                   │
+│                       │ Lambda function's      │                       │                        │                       │                   │
+│                       │ alias or version       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ RemoveLayerVersionPe… │ Grants permission to   │ Permissions           │ layerVersion*          │                       │                   │
+│                       │ remove a statement     │ management            │                        │                       │                   │
+│                       │ from the permissions   │                       │                        │                       │                   │
+│                       │ policy for a version   │                       │                        │                       │                   │
+│                       │ of an AWS Lambda layer │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ RemovePermission      │ Grants permission to   │ Permissions           │ function*              │                       │                   │
+│                       │ revoke function-use    │ management            │                        │                       │                   │
+│                       │ permission from an AWS │                       │                        │                       │                   │
+│                       │ service or another     │                       │                        │                       │                   │
+│                       │ account                │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ RemovePermission      │ Grants permission to   │ Permissions           │                        │ lambda:Principal      │                   │
+│                       │ revoke function-use    │ management            │                        │ lambda:FunctionUrlAu… │                   │
+│                       │ permission from an AWS │                       │                        │                       │                   │
+│                       │ service or another     │                       │                        │                       │                   │
+│                       │ account                │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ TagResource           │ Grants permission to   │ Tagging               │ function*              │                       │                   │
+│                       │ add tags to an AWS     │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ TagResource           │ Grants permission to   │ Tagging               │                        │ aws:RequestTag/${Tag… │                   │
+│                       │ add tags to an AWS     │                       │                        │ aws:TagKeys           │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UntagResource         │ Grants permission to   │ Tagging               │ function*              │                       │                   │
+│                       │ remove tags from an    │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UntagResource         │ Grants permission to   │ Tagging               │                        │ aws:TagKeys           │                   │
+│                       │ remove tags from an    │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateAlias           │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ update the             │                       │                        │                       │                   │
+│                       │ configuration of an    │                       │                        │                       │                   │
+│                       │ AWS Lambda function's  │                       │                        │                       │                   │
+│                       │ alias                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateCodeSigningCon… │ Grants permission to   │ Write                 │ code signing config*   │                       │                   │
+│                       │ update an AWS Lambda   │                       │                        │                       │                   │
+│                       │ code signing config    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateEventSourceMap… │ Grants permission to   │ Write                 │ eventSourceMapping*    │                       │                   │
+│                       │ update the             │                       │                        │                       │                   │
+│                       │ configuration of an    │                       │                        │                       │                   │
+│                       │ AWS Lambda event       │                       │                        │                       │                   │
+│                       │ source mapping         │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateEventSourceMap… │ Grants permission to   │ Write                 │                        │ lambda:FunctionArn    │                   │
+│                       │ update the             │                       │                        │                       │                   │
+│                       │ configuration of an    │                       │                        │                       │                   │
+│                       │ AWS Lambda event       │                       │                        │                       │                   │
+│                       │ source mapping         │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateFunctionCode    │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ update the code of an  │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateFunctionCodeSi… │ Grants permission to   │ Write                 │ code signing config*   │                       │                   │
+│                       │ update the code        │                       │                        │                       │                   │
+│                       │ signing config of an   │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateFunctionCodeSi… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ update the code        │                       │                        │                       │                   │
+│                       │ signing config of an   │                       │                        │                       │                   │
+│                       │ AWS Lambda function    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateFunctionConfig… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ modify the             │                       │                        │                       │                   │
+│                       │ version-specific       │                       │                        │                       │                   │
+│                       │ settings of an AWS     │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateFunctionConfig… │ Grants permission to   │ Write                 │                        │ lambda:Layer          │                   │
+│                       │ modify the             │                       │                        │ lambda:VpcIds         │                   │
+│                       │ version-specific       │                       │                        │ lambda:SubnetIds      │                   │
+│                       │ settings of an AWS     │                       │                        │ lambda:SecurityGroup… │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateFunctionEventI… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ modify the             │                       │                        │                       │                   │
+│                       │ configuration for      │                       │                        │                       │                   │
+│                       │ asynchronous           │                       │                        │                       │                   │
+│                       │ invocation for an AWS  │                       │                        │                       │                   │
+│                       │ Lambda function,       │                       │                        │                       │                   │
+│                       │ version, or alias      │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateFunctionUrlCon… │ Grants permission to   │ Write                 │ function*              │                       │                   │
+│                       │ update a function url  │                       │                        │                       │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UpdateFunctionUrlCon… │ Grants permission to   │ Write                 │                        │ lambda:FunctionUrlAu… │                   │
+│                       │ update a function url  │                       │                        │ lambda:FunctionArn    │                   │
+│                       │ configuration for a    │                       │                        │                       │                   │
+│                       │ Lambda function        │                       │                        │                       │                   │
+└───────────────────────┴────────────────────────┴───────────────────────┴────────────────────────┴───────────────────────┴───────────────────┘

@@ -1,0 +1,235 @@
+                                                    Last updated: 2022-10-24T01:47:06+00:00                                                    
+┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃                       ┃                        ┃                       ┃ Resource types         ┃                       ┃                   ┃
+┃ Actions               ┃ Description            ┃ Access level          ┃ (*required)            ┃ Condition keys        ┃ Dependent actions ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ BatchCheckLayerAvail… │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ check the availability │                       │                        │                       │                   │
+│                       │ of multiple image      │                       │                        │                       │                   │
+│                       │ layers in a specified  │                       │                        │                       │                   │
+│                       │ registry and           │                       │                        │                       │                   │
+│                       │ repository             │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ BatchDeleteImage      │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ delete a list of       │                       │                        │                       │                   │
+│                       │ specified images       │                       │                        │                       │                   │
+│                       │ within a specified     │                       │                        │                       │                   │
+│                       │ repository             │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ BatchGetImage         │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ get detailed           │                       │                        │                       │                   │
+│                       │ information for        │                       │                        │                       │                   │
+│                       │ specified images       │                       │                        │                       │                   │
+│                       │ within a specified     │                       │                        │                       │                   │
+│                       │ repository             │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ BatchGetRepositorySc… │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ retrieve repository    │                       │                        │                       │                   │
+│                       │ scanning configuration │                       │                        │                       │                   │
+│                       │ for a list of          │                       │                        │                       │                   │
+│                       │ repositories           │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ BatchImportUpstreamI… │ Grants permission to   │ Write                 │                        │                       │                   │
+│                       │ retrieve the image     │                       │                        │                       │                   │
+│                       │ from the upstream      │                       │                        │                       │                   │
+│                       │ registry and import it │                       │                        │                       │                   │
+│                       │ to your private        │                       │                        │                       │                   │
+│                       │ registry               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CompleteLayerUpload   │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ inform Amazon ECR that │                       │                        │                       │                   │
+│                       │ the image layer upload │                       │                        │                       │                   │
+│                       │ for a specified        │                       │                        │                       │                   │
+│                       │ registry, repository   │                       │                        │                       │                   │
+│                       │ name, and upload ID,   │                       │                        │                       │                   │
+│                       │ has completed          │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreatePullThroughCac… │ Grants permission to   │ Write                 │                        │                       │                   │
+│                       │ create new             │                       │                        │                       │                   │
+│                       │ pull-through cache     │                       │                        │                       │                   │
+│                       │ rule                   │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ CreateRepository      │ Grants permission to   │ Write                 │                        │ aws:RequestTag/${Tag… │                   │
+│                       │ create an image        │                       │                        │ aws:TagKeys           │                   │
+│                       │ repository             │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteLifecyclePolicy │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ delete the specified   │                       │                        │                       │                   │
+│                       │ lifecycle policy       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeletePullThroughCac… │ Grants permission to   │ Write                 │                        │                       │                   │
+│                       │ delete the             │                       │                        │                       │                   │
+│                       │ pull-through cache     │                       │                        │                       │                   │
+│                       │ rule                   │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteRegistryPolicy  │ Grants permission to   │ Permissions           │                        │                       │                   │
+│                       │ delete the registry    │ management            │                        │                       │                   │
+│                       │ policy                 │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteRepository      │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ delete an existing     │                       │                        │                       │                   │
+│                       │ image repository       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DeleteRepositoryPoli… │ Grants permission to   │ Permissions           │ repository*            │                       │                   │
+│                       │ delete the repository  │ management            │                        │                       │                   │
+│                       │ policy from a          │                       │                        │                       │                   │
+│                       │ specified repository   │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DescribeImageReplica… │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ retrieve replication   │                       │                        │                       │                   │
+│                       │ status about an image  │                       │                        │                       │                   │
+│                       │ in a registry,         │                       │                        │                       │                   │
+│                       │ including failure      │                       │                        │                       │                   │
+│                       │ reason if replication  │                       │                        │                       │                   │
+│                       │ fails                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DescribeImageScanFin… │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ describe the image     │                       │                        │                       │                   │
+│                       │ scan findings for the  │                       │                        │                       │                   │
+│                       │ specified image        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DescribeImages        │ Grants permission to   │ List                  │ repository*            │                       │                   │
+│                       │ get metadata about the │                       │                        │                       │                   │
+│                       │ images in a            │                       │                        │                       │                   │
+│                       │ repository, including  │                       │                        │                       │                   │
+│                       │ image size, image      │                       │                        │                       │                   │
+│                       │ tags, and creation     │                       │                        │                       │                   │
+│                       │ date                   │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DescribePullThroughC… │ Grants permission to   │ List                  │                        │                       │                   │
+│                       │ describe the           │                       │                        │                       │                   │
+│                       │ pull-through cache     │                       │                        │                       │                   │
+│                       │ rules                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DescribeRegistry      │ Grants permission to   │ Read                  │                        │                       │                   │
+│                       │ describe the registry  │                       │                        │                       │                   │
+│                       │ settings               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ DescribeRepositories  │ Grants permission to   │ Read                  │ repository             │                       │                   │
+│                       │ describe image         │                       │                        │                       │                   │
+│                       │ repositories in a      │                       │                        │                       │                   │
+│                       │ registry               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetAuthorizationToken │ Grants permission to   │ Read                  │                        │                       │                   │
+│                       │ retrieve a token that  │                       │                        │                       │                   │
+│                       │ is valid for a         │                       │                        │                       │                   │
+│                       │ specified registry for │                       │                        │                       │                   │
+│                       │ 12 hours               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetDownloadUrlForLay… │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ retrieve the download  │                       │                        │                       │                   │
+│                       │ URL corresponding to   │                       │                        │                       │                   │
+│                       │ an image layer         │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetLifecyclePolicy    │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ retrieve the specified │                       │                        │                       │                   │
+│                       │ lifecycle policy       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetLifecyclePolicyPr… │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ retrieve the results   │                       │                        │                       │                   │
+│                       │ of the specified       │                       │                        │                       │                   │
+│                       │ lifecycle policy       │                       │                        │                       │                   │
+│                       │ preview request        │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetRegistryPolicy     │ Grants permission to   │ Read                  │                        │                       │                   │
+│                       │ retrieve the registry  │                       │                        │                       │                   │
+│                       │ policy                 │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetRegistryScanningC… │ Grants permission to   │ Read                  │                        │                       │                   │
+│                       │ retrieve registry      │                       │                        │                       │                   │
+│                       │ scanning configuration │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ GetRepositoryPolicy   │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ retrieve the           │                       │                        │                       │                   │
+│                       │ repository policy for  │                       │                        │                       │                   │
+│                       │ a specified repository │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ InitiateLayerUpload   │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ notify Amazon ECR that │                       │                        │                       │                   │
+│                       │ you intend to upload   │                       │                        │                       │                   │
+│                       │ an image layer         │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListImages            │ Grants permission to   │ List                  │ repository*            │                       │                   │
+│                       │ list all the image IDs │                       │                        │                       │                   │
+│                       │ for a given repository │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListTagsForResource   │ Grants permission to   │ Read                  │ repository*            │                       │                   │
+│                       │ list the tags for an   │                       │                        │                       │                   │
+│                       │ Amazon ECR resource    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ListTagsForResource   │ Grants permission to   │ Read                  │                        │ aws:RequestTag/${Tag… │                   │
+│                       │ list the tags for an   │                       │                        │ aws:TagKeys           │                   │
+│                       │ Amazon ECR resource    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutImage              │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ create or update the   │                       │                        │                       │                   │
+│                       │ image manifest         │                       │                        │                       │                   │
+│                       │ associated with an     │                       │                        │                       │                   │
+│                       │ image                  │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutImageScanningConf… │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ update the image       │                       │                        │                       │                   │
+│                       │ scanning configuration │                       │                        │                       │                   │
+│                       │ for a repository       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutImageTagMutability │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ update the image tag   │                       │                        │                       │                   │
+│                       │ mutability settings    │                       │                        │                       │                   │
+│                       │ for a repository       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutLifecyclePolicy    │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ create or update a     │                       │                        │                       │                   │
+│                       │ lifecycle policy       │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutRegistryPolicy     │ Grants permission to   │ Permissions           │                        │                       │                   │
+│                       │ update the registry    │ management            │                        │                       │                   │
+│                       │ policy                 │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutRegistryScanningC… │ Grants permission to   │ Write                 │                        │                       │                   │
+│                       │ update registry        │                       │                        │                       │                   │
+│                       │ scanning configuration │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ PutReplicationConfig… │ Grants permission to   │ Write                 │                        │                       │                   │
+│                       │ update the replication │                       │                        │                       │                   │
+│                       │ configuration for the  │                       │                        │                       │                   │
+│                       │ registry               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ ReplicateImage        │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ replicate images to    │                       │                        │                       │                   │
+│                       │ the destination        │                       │                        │                       │                   │
+│                       │ registry               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ SetRepositoryPolicy   │ Grants permission to   │ Permissions           │ repository*            │                       │                   │
+│                       │ apply a repository     │ management            │                        │                       │                   │
+│                       │ policy on a specified  │                       │                        │                       │                   │
+│                       │ repository to control  │                       │                        │                       │                   │
+│                       │ access permissions     │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ StartImageScan        │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ start an image scan    │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ StartLifecyclePolicy… │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ start a preview of the │                       │                        │                       │                   │
+│                       │ specified lifecycle    │                       │                        │                       │                   │
+│                       │ policy                 │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ TagResource           │ Grants permission to   │ Tagging               │ repository*            │                       │                   │
+│                       │ tag an Amazon ECR      │                       │                        │                       │                   │
+│                       │ resource               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ TagResource           │ Grants permission to   │ Tagging               │                        │ aws:RequestTag/${Tag… │                   │
+│                       │ tag an Amazon ECR      │                       │                        │ aws:TagKeys           │                   │
+│                       │ resource               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UntagResource         │ Grants permission to   │ Tagging               │ repository*            │                       │                   │
+│                       │ untag an Amazon ECR    │                       │                        │                       │                   │
+│                       │ resource               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UntagResource         │ Grants permission to   │ Tagging               │                        │ aws:RequestTag/${Tag… │                   │
+│                       │ untag an Amazon ECR    │                       │                        │ aws:TagKeys           │                   │
+│                       │ resource               │                       │                        │                       │                   │
+├───────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+│ UploadLayerPart       │ Grants permission to   │ Write                 │ repository*            │                       │                   │
+│                       │ upload an image layer  │                       │                        │                       │                   │
+│                       │ part to Amazon ECR     │                       │                        │                       │                   │
+└───────────────────────┴────────────────────────┴───────────────────────┴────────────────────────┴───────────────────────┴───────────────────┘

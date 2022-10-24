@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+import datetime
 from typing import Literal
 import numpy as np
 
@@ -38,7 +38,11 @@ def create_table(iam_info: list[dict]) -> Table:
     """
     create a rich table
     """
-    table = Table(title=None, show_lines=True, safe_box=False)
+    table = Table(
+        title=f"Last updated: {datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds')}",
+        show_lines=True,
+        safe_box=False,
+    )
     _ = [table.add_column(col) for col in iam_info[0]]
     for row in iam_info:
         table.add_row(*tuple(row.values()))
@@ -62,11 +66,12 @@ def main():
 
     service_mapping = {
         "athena": "amazonathena",
+        "ecr": "amazonelasticcontainerregistry",
         "emr": "amazonelasticmapreduce",
-        "emr on eks": "amazonemroneksemrcontainers",
-        "emr serverless": "amazonemrserverless",
+        "emr-on-eks": "amazonemroneksemrcontainers",
+        "emr-serverless": "amazonemrserverless",
         "glue": "awsglue",
-        "glue databrew": "awsgluedatabrew",
+        "glue-databrew": "awsgluedatabrew",
         "iam": "identityandaccessmanagement",
         "kms": "awskeymanagementservice",
         "lakeformation": "awslakeformation",
@@ -80,7 +85,7 @@ def main():
         list_of_dataframes = get_aws_docs(service=service_mapping[service])
         for item in (
             "actions",
-            "resources",
+            # "resources",
         ):
             list_of_dict = convert_df_to_list_of_dict(
                 dataframes=list_of_dataframes, aws_doc_type="actions"
