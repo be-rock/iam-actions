@@ -74,6 +74,7 @@ def main():
         "glue": "awsglue",
         "glue-databrew": "awsgluedatabrew",
         "iam": "identityandaccessmanagement",
+        "kinesis-firehose": "amazonkinesisfirehose",
         "kms": "awskeymanagementservice",
         "lakeformation": "awslakeformation",
         "lambda": "awslambda",

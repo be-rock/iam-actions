@@ -1,167 +1,111 @@
-                                                     Last updated: 2022-10-24T02:07:17+00:00                                                     
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
-┃                          ┃                          ┃              ┃ Resource types           ┃                           ┃                   ┃
-┃ Actions                  ┃ Description              ┃ Access level ┃ (*required)              ┃ Condition keys            ┃ Dependent actions ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
-│ AssumeRole               │ Grants permission to     │ Write        │ role*                    │                           │                   │
-│                          │ obtain a set of          │              │                          │                           │                   │
-│                          │ temporary security       │              │                          │                           │                   │
-│                          │ credentials that you can │              │                          │                           │                   │
-│                          │ use to access AWS        │              │                          │                           │                   │
-│                          │ resources that you might │              │                          │                           │                   │
-│                          │ not normally have access │              │                          │                           │                   │
-│                          │ to                       │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ AssumeRole               │ Grants permission to     │ Write        │                          │ aws:TagKeys               │                   │
-│                          │ obtain a set of          │              │                          │ aws:RequestTag/${TagKey}  │                   │
-│                          │ temporary security       │              │                          │ sts:TransitiveTagKeys     │                   │
-│                          │ credentials that you can │              │                          │ sts:ExternalId            │                   │
-│                          │ use to access AWS        │              │                          │ sts:RoleSessionName       │                   │
-│                          │ resources that you might │              │                          │ iam:ResourceTag/${TagKey} │                   │
-│                          │ not normally have access │              │                          │ sts:SourceIdentity        │                   │
-│                          │ to                       │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ AssumeRoleWithSAML       │ Grants permission to     │ Write        │ role*                    │                           │                   │
-│                          │ obtain a set of          │              │                          │                           │                   │
-│                          │ temporary security       │              │                          │                           │                   │
-│                          │ credentials for users    │              │                          │                           │                   │
-│                          │ who have been            │              │                          │                           │                   │
-│                          │ authenticated via a SAML │              │                          │                           │                   │
-│                          │ authentication response  │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ AssumeRoleWithSAML       │ Grants permission to     │ Write        │                          │ saml:namequalifier        │                   │
-│                          │ obtain a set of          │              │                          │ saml:sub  saml:sub_type   │                   │
-│                          │ temporary security       │              │                          │ saml:aud  saml:iss        │                   │
-│                          │ credentials for users    │              │                          │ saml:doc  saml:cn         │                   │
-│                          │ who have been            │              │                          │ saml:commonName           │                   │
-│                          │ authenticated via a SAML │              │                          │ saml:eduorghomepageuri    │                   │
-│                          │ authentication response  │              │                          │ saml:eduorgidentityauthn… │                   │
-│                          │                          │              │                          │ saml:eduorglegalname      │                   │
-│                          │                          │              │                          │ saml:eduorgsuperioruri    │                   │
-│                          │                          │              │                          │ saml:eduorgwhitepagesuri  │                   │
-│                          │                          │              │                          │ saml:edupersonaffiliation │                   │
-│                          │                          │              │                          │ saml:edupersonassurance   │                   │
-│                          │                          │              │                          │ saml:edupersonentitlement │                   │
-│                          │                          │              │                          │ saml:edupersonnickname    │                   │
-│                          │                          │              │                          │ saml:edupersonorgdn       │                   │
-│                          │                          │              │                          │ saml:edupersonorgunitdn   │                   │
-│                          │                          │              │                          │ saml:edupersonprimaryaff… │                   │
-│                          │                          │              │                          │ saml:edupersonprimaryorg… │                   │
-│                          │                          │              │                          │ saml:edupersonprincipaln… │                   │
-│                          │                          │              │                          │ saml:edupersonscopedaffi… │                   │
-│                          │                          │              │                          │ saml:edupersontargetedid  │                   │
-│                          │                          │              │                          │ saml:givenName  saml:mail │                   │
-│                          │                          │              │                          │ saml:name                 │                   │
-│                          │                          │              │                          │ saml:organizationStatus   │                   │
-│                          │                          │              │                          │ saml:primaryGroupSID      │                   │
-│                          │                          │              │                          │ saml:surname  saml:uid    │                   │
-│                          │                          │              │                          │ saml:x500UniqueIdentifier │                   │
-│                          │                          │              │                          │ aws:TagKeys               │                   │
-│                          │                          │              │                          │ aws:RequestTag/${TagKey}  │                   │
-│                          │                          │              │                          │ sts:TransitiveTagKeys     │                   │
-│                          │                          │              │                          │ sts:SourceIdentity        │                   │
-│                          │                          │              │                          │ sts:RoleSessionName       │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ AssumeRoleWithWebIdenti… │ Grants permission to     │ Write        │ role*                    │                           │                   │
-│                          │ obtain a set of          │              │                          │                           │                   │
-│                          │ temporary security       │              │                          │                           │                   │
-│                          │ credentials for users    │              │                          │                           │                   │
-│                          │ who have been            │              │                          │                           │                   │
-│                          │ authenticated in a       │              │                          │                           │                   │
-│                          │ mobile or web            │              │                          │                           │                   │
-│                          │ application with a web   │              │                          │                           │                   │
-│                          │ identity provider        │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ AssumeRoleWithWebIdenti… │ Grants permission to     │ Write        │                          │ cognito-identity.amazona… │                   │
-│                          │ obtain a set of          │              │                          │ cognito-identity.amazona… │                   │
-│                          │ temporary security       │              │                          │ cognito-identity.amazona… │                   │
-│                          │ credentials for users    │              │                          │ www.amazon.com:app_id     │                   │
-│                          │ who have been            │              │                          │ www.amazon.com:user_id    │                   │
-│                          │ authenticated in a       │              │                          │ graph.facebook.com:app_id │                   │
-│                          │ mobile or web            │              │                          │ graph.facebook.com:id     │                   │
-│                          │ application with a web   │              │                          │ accounts.google.com:aud   │                   │
-│                          │ identity provider        │              │                          │ accounts.google.com:oaud  │                   │
-│                          │                          │              │                          │ accounts.google.com:sub   │                   │
-│                          │                          │              │                          │ aws:TagKeys               │                   │
-│                          │                          │              │                          │ aws:RequestTag/${TagKey}  │                   │
-│                          │                          │              │                          │ sts:TransitiveTagKeys     │                   │
-│                          │                          │              │                          │ sts:SourceIdentity        │                   │
-│                          │                          │              │                          │ sts:RoleSessionName       │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ DecodeAuthorizationMess… │ Grants permission to     │ Write        │                          │                           │                   │
-│                          │ decode additional        │              │                          │                           │                   │
-│                          │ information about the    │              │                          │                           │                   │
-│                          │ authorization status of  │              │                          │                           │                   │
-│                          │ a request from an        │              │                          │                           │                   │
-│                          │ encoded message returned │              │                          │                           │                   │
-│                          │ in response to an AWS    │              │                          │                           │                   │
-│                          │ request                  │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ GetAccessKeyInfo         │ Grants permission to     │ Read         │                          │                           │                   │
-│                          │ obtain details about the │              │                          │                           │                   │
-│                          │ access key id passed as  │              │                          │                           │                   │
-│                          │ a parameter to the       │              │                          │                           │                   │
-│                          │ request                  │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ GetCallerIdentity        │ Grants permission to     │ Read         │                          │                           │                   │
-│                          │ obtain details about the │              │                          │                           │                   │
-│                          │ IAM identity whose       │              │                          │                           │                   │
-│                          │ credentials are used to  │              │                          │                           │                   │
-│                          │ call the API             │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ GetFederationToken       │ Grants permission to     │ Read         │                          │ aws:TagKeys               │                   │
-│                          │ obtain a set of          │              │                          │ aws:RequestTag/${TagKey}  │                   │
-│                          │ temporary security       │              │                          │                           │                   │
-│                          │ credentials (consisting  │              │                          │                           │                   │
-│                          │ of an access key ID, a   │              │                          │                           │                   │
-│                          │ secret access key, and a │              │                          │                           │                   │
-│                          │ security token) for a    │              │                          │                           │                   │
-│                          │ federated user           │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ GetFederationToken       │ Grants permission to     │ Read         │ user                     │                           │                   │
-│                          │ obtain a set of          │              │                          │                           │                   │
-│                          │ temporary security       │              │                          │                           │                   │
-│                          │ credentials (consisting  │              │                          │                           │                   │
-│                          │ of an access key ID, a   │              │                          │                           │                   │
-│                          │ secret access key, and a │              │                          │                           │                   │
-│                          │ security token) for a    │              │                          │                           │                   │
-│                          │ federated user           │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ GetServiceBearerToken    │ Grants permission to     │ Read         │                          │ sts:AWSServiceName        │                   │
-│                          │ obtain a STS bearer      │              │                          │                           │                   │
-│                          │ token for an AWS root    │              │                          │                           │                   │
-│                          │ user, IAM role, or an    │              │                          │                           │                   │
-│                          │ IAM user                 │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ GetSessionToken          │ Grants permission to     │ Read         │                          │                           │                   │
-│                          │ obtain a set of          │              │                          │                           │                   │
-│                          │ temporary security       │              │                          │                           │                   │
-│                          │ credentials (consisting  │              │                          │                           │                   │
-│                          │ of an access key ID, a   │              │                          │                           │                   │
-│                          │ secret access key, and a │              │                          │                           │                   │
-│                          │ security token) for an   │              │                          │                           │                   │
-│                          │ AWS account or IAM user  │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ SetSourceIdentity        │ Grants permission to set │ Write        │ role                     │                           │                   │
-│                          │ a source identity on a   │              │                          │                           │                   │
-│                          │ STS session              │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ SetSourceIdentity        │ Grants permission to set │ Write        │ user                     │                           │                   │
-│                          │ a source identity on a   │              │                          │                           │                   │
-│                          │ STS session              │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ SetSourceIdentity        │ Grants permission to set │ Write        │                          │ sts:SourceIdentity        │                   │
-│                          │ a source identity on a   │              │                          │                           │                   │
-│                          │ STS session              │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ TagSession               │ Grants permission to add │ Tagging      │ role                     │                           │                   │
-│                          │ tags to a STS session    │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ TagSession               │ Grants permission to add │ Tagging      │ user                     │                           │                   │
-│                          │ tags to a STS session    │              │                          │                           │                   │
-├──────────────────────────┼──────────────────────────┼──────────────┼──────────────────────────┼───────────────────────────┼───────────────────┤
-│ TagSession               │ Grants permission to add │ Tagging      │                          │ aws:TagKeys               │                   │
-│                          │ tags to a STS session    │              │                          │ aws:RequestTag/${TagKey}  │                   │
-│                          │                          │              │                          │ sts:TransitiveTagKeys     │                   │
-│                          │                          │              │                          │ saml:aud                  │                   │
-└──────────────────────────┴──────────────────────────┴──────────────┴──────────────────────────┴───────────────────────────┴───────────────────┘
+                                                                           Last updated: 2022-11-10T16:11:44+00:00                                                                            
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃ Actions                    ┃ Description                                   ┃ Access level ┃ Resource types (*required) ┃ Condition keys                                ┃ Dependent actions ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ AssumeRole                 │ Grants permission to obtain a set of          │ Write        │ role*                      │                                               │                   │
+│                            │ temporary security credentials that you can   │              │                            │                                               │                   │
+│                            │ use to access AWS resources that you might    │              │                            │                                               │                   │
+│                            │ not normally have access to                   │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ AssumeRole                 │ Grants permission to obtain a set of          │ Write        │                            │ aws:TagKeys  aws:RequestTag/${TagKey}         │                   │
+│                            │ temporary security credentials that you can   │              │                            │ sts:TransitiveTagKeys  sts:ExternalId         │                   │
+│                            │ use to access AWS resources that you might    │              │                            │ sts:RoleSessionName                           │                   │
+│                            │ not normally have access to                   │              │                            │ iam:ResourceTag/${TagKey}  sts:SourceIdentity │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ AssumeRoleWithSAML         │ Grants permission to obtain a set of          │ Write        │ role*                      │                                               │                   │
+│                            │ temporary security credentials for users who  │              │                            │                                               │                   │
+│                            │ have been authenticated via a SAML            │              │                            │                                               │                   │
+│                            │ authentication response                       │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ AssumeRoleWithSAML         │ Grants permission to obtain a set of          │ Write        │                            │ saml:namequalifier  saml:sub  saml:sub_type   │                   │
+│                            │ temporary security credentials for users who  │              │                            │ saml:aud  saml:iss  saml:doc  saml:cn         │                   │
+│                            │ have been authenticated via a SAML            │              │                            │ saml:commonName  saml:eduorghomepageuri       │                   │
+│                            │ authentication response                       │              │                            │ saml:eduorgidentityauthnpolicyuri             │                   │
+│                            │                                               │              │                            │ saml:eduorglegalname  saml:eduorgsuperioruri  │                   │
+│                            │                                               │              │                            │ saml:eduorgwhitepagesuri                      │                   │
+│                            │                                               │              │                            │ saml:edupersonaffiliation                     │                   │
+│                            │                                               │              │                            │ saml:edupersonassurance                       │                   │
+│                            │                                               │              │                            │ saml:edupersonentitlement                     │                   │
+│                            │                                               │              │                            │ saml:edupersonnickname  saml:edupersonorgdn   │                   │
+│                            │                                               │              │                            │ saml:edupersonorgunitdn                       │                   │
+│                            │                                               │              │                            │ saml:edupersonprimaryaffiliation              │                   │
+│                            │                                               │              │                            │ saml:edupersonprimaryorgunitdn                │                   │
+│                            │                                               │              │                            │ saml:edupersonprincipalname                   │                   │
+│                            │                                               │              │                            │ saml:edupersonscopedaffiliation               │                   │
+│                            │                                               │              │                            │ saml:edupersontargetedid  saml:givenName      │                   │
+│                            │                                               │              │                            │ saml:mail  saml:name  saml:organizationStatus │                   │
+│                            │                                               │              │                            │ saml:primaryGroupSID  saml:surname  saml:uid  │                   │
+│                            │                                               │              │                            │ saml:x500UniqueIdentifier  aws:TagKeys        │                   │
+│                            │                                               │              │                            │ aws:RequestTag/${TagKey}                      │                   │
+│                            │                                               │              │                            │ sts:TransitiveTagKeys  sts:SourceIdentity     │                   │
+│                            │                                               │              │                            │ sts:RoleSessionName                           │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ AssumeRoleWithWebIdentity  │ Grants permission to obtain a set of          │ Write        │ role*                      │                                               │                   │
+│                            │ temporary security credentials for users who  │              │                            │                                               │                   │
+│                            │ have been authenticated in a mobile or web    │              │                            │                                               │                   │
+│                            │ application with a web identity provider      │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ AssumeRoleWithWebIdentity  │ Grants permission to obtain a set of          │ Write        │                            │ cognito-identity.amazonaws.com:amr            │                   │
+│                            │ temporary security credentials for users who  │              │                            │ cognito-identity.amazonaws.com:aud            │                   │
+│                            │ have been authenticated in a mobile or web    │              │                            │ cognito-identity.amazonaws.com:sub            │                   │
+│                            │ application with a web identity provider      │              │                            │ www.amazon.com:app_id  www.amazon.com:user_id │                   │
+│                            │                                               │              │                            │ graph.facebook.com:app_id                     │                   │
+│                            │                                               │              │                            │ graph.facebook.com:id                         │                   │
+│                            │                                               │              │                            │ accounts.google.com:aud                       │                   │
+│                            │                                               │              │                            │ accounts.google.com:oaud                      │                   │
+│                            │                                               │              │                            │ accounts.google.com:sub  aws:TagKeys          │                   │
+│                            │                                               │              │                            │ aws:RequestTag/${TagKey}                      │                   │
+│                            │                                               │              │                            │ sts:TransitiveTagKeys  sts:SourceIdentity     │                   │
+│                            │                                               │              │                            │ sts:RoleSessionName                           │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ DecodeAuthorizationMessage │ Grants permission to decode additional        │ Write        │                            │                                               │                   │
+│                            │ information about the authorization status of │              │                            │                                               │                   │
+│                            │ a request from an encoded message returned in │              │                            │                                               │                   │
+│                            │ response to an AWS request                    │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ GetAccessKeyInfo           │ Grants permission to obtain details about the │ Read         │                            │                                               │                   │
+│                            │ access key id passed as a parameter to the    │              │                            │                                               │                   │
+│                            │ request                                       │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ GetCallerIdentity          │ Grants permission to obtain details about the │ Read         │                            │                                               │                   │
+│                            │ IAM identity whose credentials are used to    │              │                            │                                               │                   │
+│                            │ call the API                                  │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ GetFederationToken         │ Grants permission to obtain a set of          │ Read         │                            │ aws:TagKeys  aws:RequestTag/${TagKey}         │                   │
+│                            │ temporary security credentials (consisting of │              │                            │                                               │                   │
+│                            │ an access key ID, a secret access key, and a  │              │                            │                                               │                   │
+│                            │ security token) for a federated user          │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ GetFederationToken         │ Grants permission to obtain a set of          │ Read         │ user                       │                                               │                   │
+│                            │ temporary security credentials (consisting of │              │                            │                                               │                   │
+│                            │ an access key ID, a secret access key, and a  │              │                            │                                               │                   │
+│                            │ security token) for a federated user          │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ GetServiceBearerToken      │ Grants permission to obtain a STS bearer      │ Read         │                            │ sts:AWSServiceName                            │                   │
+│                            │ token for an AWS root user, IAM role, or an   │              │                            │                                               │                   │
+│                            │ IAM user                                      │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ GetSessionToken            │ Grants permission to obtain a set of          │ Read         │                            │                                               │                   │
+│                            │ temporary security credentials (consisting of │              │                            │                                               │                   │
+│                            │ an access key ID, a secret access key, and a  │              │                            │                                               │                   │
+│                            │ security token) for an AWS account or IAM     │              │                            │                                               │                   │
+│                            │ user                                          │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ SetSourceIdentity          │ Grants permission to set a source identity on │ Write        │ role                       │                                               │                   │
+│                            │ a STS session                                 │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ SetSourceIdentity          │ Grants permission to set a source identity on │ Write        │ user                       │                                               │                   │
+│                            │ a STS session                                 │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ SetSourceIdentity          │ Grants permission to set a source identity on │ Write        │                            │ sts:SourceIdentity                            │                   │
+│                            │ a STS session                                 │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ TagSession                 │ Grants permission to add tags to a STS        │ Tagging      │ role                       │                                               │                   │
+│                            │ session                                       │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ TagSession                 │ Grants permission to add tags to a STS        │ Tagging      │ user                       │                                               │                   │
+│                            │ session                                       │              │                            │                                               │                   │
+├────────────────────────────┼───────────────────────────────────────────────┼──────────────┼────────────────────────────┼───────────────────────────────────────────────┼───────────────────┤
+│ TagSession                 │ Grants permission to add tags to a STS        │ Tagging      │                            │ aws:TagKeys  aws:RequestTag/${TagKey}         │                   │
+│                            │ session                                       │              │                            │ sts:TransitiveTagKeys  saml:aud               │                   │
+└────────────────────────────┴───────────────────────────────────────────────┴──────────────┴────────────────────────────┴───────────────────────────────────────────────┴───────────────────┘

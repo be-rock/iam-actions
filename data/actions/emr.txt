@@ -1,448 +1,332 @@
-                                                     Last updated: 2022-10-24T02:07:10+00:00                                                     
-┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
-┃                        ┃                        ┃                        ┃ Resource types         ┃                       ┃                   ┃
-┃ Actions                ┃ Description            ┃ Access level           ┃ (*required)            ┃ Condition keys        ┃ Dependent actions ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
-│ AddInstanceFleet       │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ add an instance fleet  │                        │                        │                       │                   │
-│                        │ to a running cluster   │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AddInstanceGroups      │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ add instance groups to │                        │                        │                       │                   │
-│                        │ a running cluster      │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AddJobFlowSteps        │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ add new steps to a     │                        │                        │                       │                   │
-│                        │ running cluster        │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AddJobFlowSteps        │ Grants permission to   │ Write                  │                        │ elasticmapreduce:Exe… │                   │
-│                        │ add new steps to a     │                        │                        │                       │                   │
-│                        │ running cluster        │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AddTags                │ Grants permission to   │ Tagging                │ cluster                │                       │                   │
-│                        │ add tags to an Amazon  │                        │                        │                       │                   │
-│                        │ EMR resource           │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AddTags                │ Grants permission to   │ Tagging                │ editor                 │                       │                   │
-│                        │ add tags to an Amazon  │                        │                        │                       │                   │
-│                        │ EMR resource           │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AddTags                │ Grants permission to   │ Tagging                │ notebook-execution     │                       │                   │
-│                        │ add tags to an Amazon  │                        │                        │                       │                   │
-│                        │ EMR resource           │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AddTags                │ Grants permission to   │ Tagging                │ studio                 │                       │                   │
-│                        │ add tags to an Amazon  │                        │                        │                       │                   │
-│                        │ EMR resource           │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AddTags                │ Grants permission to   │ Tagging                │                        │ aws:RequestTag/${Tag… │                   │
-│                        │ add tags to an Amazon  │                        │                        │ aws:TagKeys           │                   │
-│                        │ EMR resource           │                        │                        │ elasticmapreduce:Req… │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ AttachEditor           │ Grants permission to   │ Write                  │ editor*                │                       │                   │
-│                        │ attach an EMR notebook │                        │                        │                       │                   │
-│                        │ to a compute engine    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CancelSteps            │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ cancel a pending step  │                        │                        │                       │                   │
-│                        │ or steps in a running  │                        │                        │                       │                   │
-│                        │ cluster                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CreateEditor           │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ create an EMR notebook │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CreateEditor           │ Grants permission to   │ Write                  │                        │ aws:RequestTag/${Tag… │                   │
-│                        │ create an EMR notebook │                        │                        │ aws:TagKeys           │                   │
-│                        │                        │                        │                        │ elasticmapreduce:Req… │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CreatePersistentAppUI  │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ create a persistent    │                        │                        │                       │                   │
-│                        │ application history    │                        │                        │                       │                   │
-│                        │ server                 │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CreateRepository       │ Grants permission to   │ Write                  │                        │                       │                   │
-│                        │ create an EMR notebook │                        │                        │                       │                   │
-│                        │ repository             │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CreateSecurityConfigu… │ Grants permission to   │ Write                  │                        │                       │                   │
-│                        │ create a security      │                        │                        │                       │                   │
-│                        │ configuration          │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CreateStudio           │ Grants permission to   │ Write                  │                        │ aws:RequestTag/${Tag… │                   │
-│                        │ create an EMR Studio   │                        │                        │ aws:TagKeys           │                   │
-│                        │                        │                        │                        │ elasticmapreduce:Req… │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CreateStudioPresigned… │ Grants permission to   │ Write                  │ studio*                │                       │                   │
-│                        │ launch an EMR Studio   │                        │                        │                       │                   │
-│                        │ using IAM              │                        │                        │                       │                   │
-│                        │ authentication mode    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ CreateStudioSessionMa… │ Grants permission to   │ Write                  │ studio*                │                       │                   │
-│                        │ create an EMR Studio   │                        │                        │                       │                   │
-│                        │ session mapping        │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DeleteEditor           │ Grants permission to   │ Write                  │ editor*                │                       │                   │
-│                        │ delete an EMR notebook │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DeleteRepository       │ Grants permission to   │ Write                  │                        │                       │                   │
-│                        │ delete an EMR notebook │                        │                        │                       │                   │
-│                        │ repository             │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DeleteSecurityConfigu… │ Grants permission to   │ Write                  │                        │                       │                   │
-│                        │ delete a security      │                        │                        │                       │                   │
-│                        │ configuration          │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DeleteStudio           │ Grants permission to   │ Write                  │ studio*                │                       │                   │
-│                        │ delete an EMR Studio   │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DeleteStudioSessionMa… │ Grants permission to   │ Write                  │ studio*                │                       │                   │
-│                        │ delete an EMR Studio   │                        │                        │                       │                   │
-│                        │ session mapping        │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DeleteWorkspaceAccess  │ Grants permission to   │ Permissions management │ editor*                │                       │                   │
-│                        │ block an identity from │                        │                        │                       │                   │
-│                        │ opening a              │                        │                        │                       │                   │
-│                        │ collaborative          │                        │                        │                       │                   │
-│                        │ workspace              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeCluster        │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ get details about a    │                        │                        │                       │                   │
-│                        │ cluster, including     │                        │                        │                       │                   │
-│                        │ status, hardware and   │                        │                        │                       │                   │
-│                        │ software               │                        │                        │                       │                   │
-│                        │ configuration, VPC     │                        │                        │                       │                   │
-│                        │ settings, and so on    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeEditor         │ Grants permission to   │ Read                   │ editor*                │                       │                   │
-│                        │ view information about │                        │                        │                       │                   │
-│                        │ a notebook, including  │                        │                        │                       │                   │
-│                        │ status, user, role,    │                        │                        │                       │                   │
-│                        │ tags, location, and    │                        │                        │                       │                   │
-│                        │ more                   │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeJobFlows       │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ describe details of    │                        │                        │                       │                   │
-│                        │ clusters (job flows).  │                        │                        │                       │                   │
-│                        │ This API is deprecated │                        │                        │                       │                   │
-│                        │ and will eventually be │                        │                        │                       │                   │
-│                        │ removed. We recommend  │                        │                        │                       │                   │
-│                        │ you use ListClusters,  │                        │                        │                       │                   │
-│                        │ DescribeCluster,       │                        │                        │                       │                   │
-│                        │ ListSteps,             │                        │                        │                       │                   │
-│                        │ ListInstanceGroups and │                        │                        │                       │                   │
-│                        │ ListBootstrapActions   │                        │                        │                       │                   │
-│                        │ instead                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeNotebookExecu… │ Grants permission to   │ Read                   │ notebook-execution*    │                       │                   │
-│                        │ view information about │                        │                        │                       │                   │
-│                        │ a notebook execution   │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribePersistentApp… │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ describe a persistent  │                        │                        │                       │                   │
-│                        │ application history    │                        │                        │                       │                   │
-│                        │ server                 │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeReleaseLabel   │ Grants permission to   │ Read                   │                        │                       │                   │
-│                        │ view information about │                        │                        │                       │                   │
-│                        │ an EMR release, such   │                        │                        │                       │                   │
-│                        │ as which applications  │                        │                        │                       │                   │
-│                        │ are supported          │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeRepository     │ Grants permission to   │ Read                   │                        │                       │                   │
-│                        │ describe an EMR        │                        │                        │                       │                   │
-│                        │ notebook repository    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeSecurityConfi… │ Grants permission to   │ Read                   │                        │                       │                   │
-│                        │ get details of a       │                        │                        │                       │                   │
-│                        │ security configuration │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeStep           │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ get details about a    │                        │                        │                       │                   │
-│                        │ cluster step           │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DescribeStudio         │ Grants permission to   │ Read                   │ studio*                │                       │                   │
-│                        │ view information about │                        │                        │                       │                   │
-│                        │ an EMR Studio          │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ DetachEditor           │ Grants permission to   │ Write                  │ editor*                │                       │                   │
-│                        │ detach an EMR notebook │                        │                        │                       │                   │
-│                        │ from a compute engine  │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ GetAutoTerminationPol… │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ retrieve the           │                        │                        │                       │                   │
-│                        │ auto-termination       │                        │                        │                       │                   │
-│                        │ policy associated with │                        │                        │                       │                   │
-│                        │ a cluster              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ GetBlockPublicAccessC… │ Grants permission to   │ Read                   │                        │                       │                   │
-│                        │ retrieve the EMR block │                        │                        │                       │                   │
-│                        │ public access          │                        │                        │                       │                   │
-│                        │ configuration for the  │                        │                        │                       │                   │
-│                        │ AWS account in the     │                        │                        │                       │                   │
-│                        │ Region                 │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ GetManagedScalingPoli… │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ retrieve the managed   │                        │                        │                       │                   │
-│                        │ scaling policy         │                        │                        │                       │                   │
-│                        │ associated with a      │                        │                        │                       │                   │
-│                        │ cluster                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ GetOnClusterAppUIPres… │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ get a presigned URL    │                        │                        │                       │                   │
-│                        │ for an application     │                        │                        │                       │                   │
-│                        │ history server running │                        │                        │                       │                   │
-│                        │ on the cluster         │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ GetPersistentAppUIPre… │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ get a presigned URL    │                        │                        │                       │                   │
-│                        │ for a persistent       │                        │                        │                       │                   │
-│                        │ application history    │                        │                        │                       │                   │
-│                        │ server                 │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ GetStudioSessionMappi… │ Grants permission to   │ Read                   │ studio*                │                       │                   │
-│                        │ view information about │                        │                        │                       │                   │
-│                        │ an EMR Studio session  │                        │                        │                       │                   │
-│                        │ mapping                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ LinkRepository         │ Grants permission to   │ Write                  │                        │                       │                   │
-│                        │ link an EMR notebook   │                        │                        │                       │                   │
-│                        │ repository to EMR      │                        │                        │                       │                   │
-│                        │ notebooks              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListBootstrapActions   │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ get details about the  │                        │                        │                       │                   │
-│                        │ bootstrap actions      │                        │                        │                       │                   │
-│                        │ associated with a      │                        │                        │                       │                   │
-│                        │ cluster                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListClusters           │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ get the status of      │                        │                        │                       │                   │
-│                        │ accessible clusters    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListEditors            │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ list summary           │                        │                        │                       │                   │
-│                        │ information for        │                        │                        │                       │                   │
-│                        │ accessible EMR         │                        │                        │                       │                   │
-│                        │ notebooks              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListInstanceFleets     │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ get details of         │                        │                        │                       │                   │
-│                        │ instance fleets in a   │                        │                        │                       │                   │
-│                        │ cluster                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListInstanceGroups     │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ get details of         │                        │                        │                       │                   │
-│                        │ instance groups in a   │                        │                        │                       │                   │
-│                        │ cluster                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListInstances          │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ get details about the  │                        │                        │                       │                   │
-│                        │ Amazon EC2 instances   │                        │                        │                       │                   │
-│                        │ in a cluster           │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListNotebookExecutions │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ list summary           │                        │                        │                       │                   │
-│                        │ information for        │                        │                        │                       │                   │
-│                        │ notebook executions    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListReleaseLabels      │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ list and filter the    │                        │                        │                       │                   │
-│                        │ available EMR releases │                        │                        │                       │                   │
-│                        │ in the current region  │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListRepositories       │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ list existing EMR      │                        │                        │                       │                   │
-│                        │ notebook repositories  │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListSecurityConfigura… │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ list available         │                        │                        │                       │                   │
-│                        │ security               │                        │                        │                       │                   │
-│                        │ configurations in this │                        │                        │                       │                   │
-│                        │ account by name, along │                        │                        │                       │                   │
-│                        │ with creation dates    │                        │                        │                       │                   │
-│                        │ and times              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListSteps              │ Grants permission to   │ Read                   │ cluster*               │                       │                   │
-│                        │ list steps associated  │                        │                        │                       │                   │
-│                        │ with a cluster         │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListStudioSessionMapp… │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ list summary           │                        │                        │                       │                   │
-│                        │ information about EMR  │                        │                        │                       │                   │
-│                        │ Studio session         │                        │                        │                       │                   │
-│                        │ mappings               │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListStudios            │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ list summary           │                        │                        │                       │                   │
-│                        │ information about EMR  │                        │                        │                       │                   │
-│                        │ Studios                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ListWorkspaceAccessId… │ Grants permission to   │ List                   │ editor*                │                       │                   │
-│                        │ list identities that   │                        │                        │                       │                   │
-│                        │ are granted access to  │                        │                        │                       │                   │
-│                        │ a workspace            │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ModifyCluster          │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ change cluster         │                        │                        │                       │                   │
-│                        │ settings such as       │                        │                        │                       │                   │
-│                        │ number of steps that   │                        │                        │                       │                   │
-│                        │ can be executed        │                        │                        │                       │                   │
-│                        │ concurrently for a     │                        │                        │                       │                   │
-│                        │ cluster                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ModifyInstanceFleet    │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ change the target      │                        │                        │                       │                   │
-│                        │ On-Demand and target   │                        │                        │                       │                   │
-│                        │ Spot capacities for a  │                        │                        │                       │                   │
-│                        │ instance fleet         │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ModifyInstanceGroups   │ Grants permission to   │ Write                  │ cluster                │                       │                   │
-│                        │ change the number and  │                        │                        │                       │                   │
-│                        │ configuration of EC2   │                        │                        │                       │                   │
-│                        │ instances for an       │                        │                        │                       │                   │
-│                        │ instance group         │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ OpenEditorInConsole    │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ launch the Jupyter     │                        │                        │                       │                   │
-│                        │ notebook editor for an │                        │                        │                       │                   │
-│                        │ EMR notebook from      │                        │                        │                       │                   │
-│                        │ within the console     │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ OpenEditorInConsole    │ Grants permission to   │ Write                  │ editor*                │                       │                   │
-│                        │ launch the Jupyter     │                        │                        │                       │                   │
-│                        │ notebook editor for an │                        │                        │                       │                   │
-│                        │ EMR notebook from      │                        │                        │                       │                   │
-│                        │ within the console     │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ PutAutoScalingPolicy   │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ create or update an    │                        │                        │                       │                   │
-│                        │ automatic scaling      │                        │                        │                       │                   │
-│                        │ policy for a core      │                        │                        │                       │                   │
-│                        │ instance group or task │                        │                        │                       │                   │
-│                        │ instance group         │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ PutAutoTerminationPol… │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ create or update the   │                        │                        │                       │                   │
-│                        │ auto-termination       │                        │                        │                       │                   │
-│                        │ policy associated with │                        │                        │                       │                   │
-│                        │ a cluster              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ PutBlockPublicAccessC… │ Grants permission to   │ Permissions management │                        │                       │                   │
-│                        │ create or update the   │                        │                        │                       │                   │
-│                        │ EMR block public       │                        │                        │                       │                   │
-│                        │ access configuration   │                        │                        │                       │                   │
-│                        │ for the AWS account in │                        │                        │                       │                   │
-│                        │ the Region             │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ PutManagedScalingPoli… │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ create or update the   │                        │                        │                       │                   │
-│                        │ managed scaling policy │                        │                        │                       │                   │
-│                        │ associated with a      │                        │                        │                       │                   │
-│                        │ cluster                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ PutWorkspaceAccess     │ Grants permission to   │ Permissions management │ editor*                │                       │                   │
-│                        │ allow an identity to   │                        │                        │                       │                   │
-│                        │ open a collaborative   │                        │                        │                       │                   │
-│                        │ workspace              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RemoveAutoScalingPoli… │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ remove an automatic    │                        │                        │                       │                   │
-│                        │ scaling policy from an │                        │                        │                       │                   │
-│                        │ instance group         │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RemoveAutoTermination… │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ remove the             │                        │                        │                       │                   │
-│                        │ auto-termination       │                        │                        │                       │                   │
-│                        │ policy associated with │                        │                        │                       │                   │
-│                        │ a cluster              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RemoveManagedScalingP… │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ remove the managed     │                        │                        │                       │                   │
-│                        │ scaling policy         │                        │                        │                       │                   │
-│                        │ associated with a      │                        │                        │                       │                   │
-│                        │ cluster                │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RemoveTags             │ Grants permission to   │ Tagging                │ cluster                │                       │                   │
-│                        │ remove tags from an    │                        │                        │                       │                   │
-│                        │ Amazon EMR resource    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RemoveTags             │ Grants permission to   │ Tagging                │ editor                 │                       │                   │
-│                        │ remove tags from an    │                        │                        │                       │                   │
-│                        │ Amazon EMR resource    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RemoveTags             │ Grants permission to   │ Tagging                │ notebook-execution     │                       │                   │
-│                        │ remove tags from an    │                        │                        │                       │                   │
-│                        │ Amazon EMR resource    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RemoveTags             │ Grants permission to   │ Tagging                │ studio                 │                       │                   │
-│                        │ remove tags from an    │                        │                        │                       │                   │
-│                        │ Amazon EMR resource    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RemoveTags             │ Grants permission to   │ Tagging                │                        │ aws:TagKeys           │                   │
-│                        │ remove tags from an    │                        │                        │                       │                   │
-│                        │ Amazon EMR resource    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ RunJobFlow             │ Grants permission to   │ Write                  │                        │ aws:RequestTag/${Tag… │                   │
-│                        │ create and launch a    │                        │                        │ aws:TagKeys           │                   │
-│                        │ cluster (job flow)     │                        │                        │ elasticmapreduce:Req… │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ SetTerminationProtect… │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ add and remove         │                        │                        │                       │                   │
-│                        │ termination protection │                        │                        │                       │                   │
-│                        │ for a cluster          │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ StartEditor            │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ start an EMR notebook  │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ StartEditor            │ Grants permission to   │ Write                  │ editor*                │                       │                   │
-│                        │ start an EMR notebook  │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ StartNotebookExecution │ Grants permission to   │ Write                  │                        │ aws:RequestTag/${Tag… │                   │
-│                        │ start an EMR notebook  │                        │                        │ aws:TagKeys           │                   │
-│                        │ execution              │                        │                        │ elasticmapreduce:Req… │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ StartNotebookExecution │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ start an EMR notebook  │                        │                        │                       │                   │
-│                        │ execution              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ StartNotebookExecution │ Grants permission to   │ Write                  │ editor*                │                       │                   │
-│                        │ start an EMR notebook  │                        │                        │                       │                   │
-│                        │ execution              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ StopEditor             │ Grants permission to   │ Write                  │ editor*                │                       │                   │
-│                        │ shut down an EMR       │                        │                        │                       │                   │
-│                        │ notebook               │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ StopNotebookExecution  │ Grants permission to   │ Write                  │ notebook-execution*    │                       │                   │
-│                        │ stop notebook          │                        │                        │                       │                   │
-│                        │ execution              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ TerminateJobFlows      │ Grants permission to   │ Write                  │ cluster*               │                       │                   │
-│                        │ terminate a cluster    │                        │                        │                       │                   │
-│                        │ (job flow)             │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ UnlinkRepository       │ Grants permission to   │ Write                  │                        │                       │                   │
-│                        │ unlink an EMR notebook │                        │                        │                       │                   │
-│                        │ repository from EMR    │                        │                        │                       │                   │
-│                        │ notebooks              │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ UpdateEditor           │ Grants permission to   │ Write                  │ editor*                │                       │                   │
-│                        │ update an EMR notebook │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ UpdateRepository       │ Grants permission to   │ Write                  │                        │                       │                   │
-│                        │ update an EMR notebook │                        │                        │                       │                   │
-│                        │ repository             │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ UpdateStudio           │ Grants permission to   │ Write                  │ studio*                │                       │                   │
-│                        │ update information     │                        │                        │                       │                   │
-│                        │ about an EMR Studio    │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ UpdateStudioSessionMa… │ Grants permission to   │ Write                  │ studio*                │                       │                   │
-│                        │ update an EMR Studio   │                        │                        │                       │                   │
-│                        │ session mapping        │                        │                        │                       │                   │
-├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
-│ ViewEventsFromAllClus… │ Grants permission to   │ List                   │                        │                       │                   │
-│                        │ use the EMR console to │                        │                        │                       │                   │
-│                        │ view events from all   │                        │                        │                       │                   │
-│                        │ clusters               │                        │                        │                       │                   │
-└────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┴───────────────────────┴───────────────────┘
+                                                                           Last updated: 2022-11-10T16:11:37+00:00                                                                            
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃ Actions                             ┃ Description                          ┃ Access level           ┃ Resource types (*required) ┃ Condition keys                      ┃ Dependent actions ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ AddInstanceFleet                    │ Grants permission to add an instance │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ fleet to a running cluster           │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AddInstanceGroups                   │ Grants permission to add instance    │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ groups to a running cluster          │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AddJobFlowSteps                     │ Grants permission to add new steps   │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ to a running cluster                 │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AddJobFlowSteps                     │ Grants permission to add new steps   │ Write                  │                            │ elasticmapreduce:ExecutionRoleArn   │                   │
+│                                     │ to a running cluster                 │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AddTags                             │ Grants permission to add tags to an  │ Tagging                │ cluster                    │                                     │                   │
+│                                     │ Amazon EMR resource                  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AddTags                             │ Grants permission to add tags to an  │ Tagging                │ editor                     │                                     │                   │
+│                                     │ Amazon EMR resource                  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AddTags                             │ Grants permission to add tags to an  │ Tagging                │ notebook-execution         │                                     │                   │
+│                                     │ Amazon EMR resource                  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AddTags                             │ Grants permission to add tags to an  │ Tagging                │ studio                     │                                     │                   │
+│                                     │ Amazon EMR resource                  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AddTags                             │ Grants permission to add tags to an  │ Tagging                │                            │ aws:RequestTag/${TagKey}            │                   │
+│                                     │ Amazon EMR resource                  │                        │                            │ aws:TagKeys                         │                   │
+│                                     │                                      │                        │                            │ elasticmapreduce:RequestTag/${TagK… │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ AttachEditor                        │ Grants permission to attach an EMR   │ Write                  │ editor*                    │                                     │                   │
+│                                     │ notebook to a compute engine         │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CancelSteps                         │ Grants permission to cancel a        │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ pending step or steps in a running   │                        │                            │                                     │                   │
+│                                     │ cluster                              │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CreateEditor                        │ Grants permission to create an EMR   │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ notebook                             │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CreateEditor                        │ Grants permission to create an EMR   │ Write                  │                            │ aws:RequestTag/${TagKey}            │                   │
+│                                     │ notebook                             │                        │                            │ aws:TagKeys                         │                   │
+│                                     │                                      │                        │                            │ elasticmapreduce:RequestTag/${TagK… │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CreatePersistentAppUI               │ Grants permission to create a        │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ persistent application history       │                        │                            │                                     │                   │
+│                                     │ server                               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CreateRepository                    │ Grants permission to create an EMR   │ Write                  │                            │                                     │                   │
+│                                     │ notebook repository                  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CreateSecurityConfiguration         │ Grants permission to create a        │ Write                  │                            │                                     │                   │
+│                                     │ security configuration               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CreateStudio                        │ Grants permission to create an EMR   │ Write                  │                            │ aws:RequestTag/${TagKey}            │                   │
+│                                     │ Studio                               │                        │                            │ aws:TagKeys                         │                   │
+│                                     │                                      │                        │                            │ elasticmapreduce:RequestTag/${TagK… │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CreateStudioPresignedUrl            │ Grants permission to launch an EMR   │ Write                  │ studio*                    │                                     │                   │
+│                                     │ Studio using IAM authentication mode │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ CreateStudioSessionMapping          │ Grants permission to create an EMR   │ Write                  │ studio*                    │                                     │                   │
+│                                     │ Studio session mapping               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DeleteEditor                        │ Grants permission to delete an EMR   │ Write                  │ editor*                    │                                     │                   │
+│                                     │ notebook                             │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DeleteRepository                    │ Grants permission to delete an EMR   │ Write                  │                            │                                     │                   │
+│                                     │ notebook repository                  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DeleteSecurityConfiguration         │ Grants permission to delete a        │ Write                  │                            │                                     │                   │
+│                                     │ security configuration               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DeleteStudio                        │ Grants permission to delete an EMR   │ Write                  │ studio*                    │                                     │                   │
+│                                     │ Studio                               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DeleteStudioSessionMapping          │ Grants permission to delete an EMR   │ Write                  │ studio*                    │                                     │                   │
+│                                     │ Studio session mapping               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DeleteWorkspaceAccess               │ Grants permission to block an        │ Permissions management │ editor*                    │                                     │                   │
+│                                     │ identity from opening a              │                        │                            │                                     │                   │
+│                                     │ collaborative workspace              │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeCluster                     │ Grants permission to get details     │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ about a cluster, including status,   │                        │                            │                                     │                   │
+│                                     │ hardware and software configuration, │                        │                            │                                     │                   │
+│                                     │ VPC settings, and so on              │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeEditor                      │ Grants permission to view            │ Read                   │ editor*                    │                                     │                   │
+│                                     │ information about a notebook,        │                        │                            │                                     │                   │
+│                                     │ including status, user, role, tags,  │                        │                            │                                     │                   │
+│                                     │ location, and more                   │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeJobFlows                    │ Grants permission to describe        │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ details of clusters (job flows).     │                        │                            │                                     │                   │
+│                                     │ This API is deprecated and will      │                        │                            │                                     │                   │
+│                                     │ eventually be removed. We recommend  │                        │                            │                                     │                   │
+│                                     │ you use ListClusters,                │                        │                            │                                     │                   │
+│                                     │ DescribeCluster, ListSteps,          │                        │                            │                                     │                   │
+│                                     │ ListInstanceGroups and               │                        │                            │                                     │                   │
+│                                     │ ListBootstrapActions instead         │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeNotebookExecution           │ Grants permission to view            │ Read                   │ notebook-execution*        │                                     │                   │
+│                                     │ information about a notebook         │                        │                            │                                     │                   │
+│                                     │ execution                            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribePersistentAppUI             │ Grants permission to describe a      │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ persistent application history       │                        │                            │                                     │                   │
+│                                     │ server                               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeReleaseLabel                │ Grants permission to view            │ Read                   │                            │                                     │                   │
+│                                     │ information about an EMR release,    │                        │                            │                                     │                   │
+│                                     │ such as which applications are       │                        │                            │                                     │                   │
+│                                     │ supported                            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeRepository                  │ Grants permission to describe an EMR │ Read                   │                            │                                     │                   │
+│                                     │ notebook repository                  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeSecurityConfiguration       │ Grants permission to get details of  │ Read                   │                            │                                     │                   │
+│                                     │ a security configuration             │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeStep                        │ Grants permission to get details     │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ about a cluster step                 │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DescribeStudio                      │ Grants permission to view            │ Read                   │ studio*                    │                                     │                   │
+│                                     │ information about an EMR Studio      │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ DetachEditor                        │ Grants permission to detach an EMR   │ Write                  │ editor*                    │                                     │                   │
+│                                     │ notebook from a compute engine       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ GetAutoTerminationPolicy            │ Grants permission to retrieve the    │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ auto-termination policy associated   │                        │                            │                                     │                   │
+│                                     │ with a cluster                       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ GetBlockPublicAccessConfiguration   │ Grants permission to retrieve the    │ Read                   │                            │                                     │                   │
+│                                     │ EMR block public access              │                        │                            │                                     │                   │
+│                                     │ configuration for the AWS account in │                        │                            │                                     │                   │
+│                                     │ the Region                           │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ GetManagedScalingPolicy             │ Grants permission to retrieve the    │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ managed scaling policy associated    │                        │                            │                                     │                   │
+│                                     │ with a cluster                       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ GetOnClusterAppUIPresignedURL       │ Grants permission to get a presigned │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ URL for an application history       │                        │                            │                                     │                   │
+│                                     │ server running on the cluster        │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ GetPersistentAppUIPresignedURL      │ Grants permission to get a presigned │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ URL for a persistent application     │                        │                            │                                     │                   │
+│                                     │ history server                       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ GetStudioSessionMapping             │ Grants permission to view            │ Read                   │ studio*                    │                                     │                   │
+│                                     │ information about an EMR Studio      │                        │                            │                                     │                   │
+│                                     │ session mapping                      │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ LinkRepository                      │ Grants permission to link an EMR     │ Write                  │                            │                                     │                   │
+│                                     │ notebook repository to EMR notebooks │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListBootstrapActions                │ Grants permission to get details     │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ about the bootstrap actions          │                        │                            │                                     │                   │
+│                                     │ associated with a cluster            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListClusters                        │ Grants permission to get the status  │ List                   │                            │                                     │                   │
+│                                     │ of accessible clusters               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListEditors                         │ Grants permission to list summary    │ List                   │                            │                                     │                   │
+│                                     │ information for accessible EMR       │                        │                            │                                     │                   │
+│                                     │ notebooks                            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListInstanceFleets                  │ Grants permission to get details of  │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ instance fleets in a cluster         │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListInstanceGroups                  │ Grants permission to get details of  │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ instance groups in a cluster         │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListInstances                       │ Grants permission to get details     │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ about the Amazon EC2 instances in a  │                        │                            │                                     │                   │
+│                                     │ cluster                              │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListNotebookExecutions              │ Grants permission to list summary    │ List                   │                            │                                     │                   │
+│                                     │ information for notebook executions  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListReleaseLabels                   │ Grants permission to list and filter │ List                   │                            │                                     │                   │
+│                                     │ the available EMR releases in the    │                        │                            │                                     │                   │
+│                                     │ current region                       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListRepositories                    │ Grants permission to list existing   │ List                   │                            │                                     │                   │
+│                                     │ EMR notebook repositories            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListSecurityConfigurations          │ Grants permission to list available  │ List                   │                            │                                     │                   │
+│                                     │ security configurations in this      │                        │                            │                                     │                   │
+│                                     │ account by name, along with creation │                        │                            │                                     │                   │
+│                                     │ dates and times                      │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListSteps                           │ Grants permission to list steps      │ Read                   │ cluster*                   │                                     │                   │
+│                                     │ associated with a cluster            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListStudioSessionMappings           │ Grants permission to list summary    │ List                   │                            │                                     │                   │
+│                                     │ information about EMR Studio session │                        │                            │                                     │                   │
+│                                     │ mappings                             │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListStudios                         │ Grants permission to list summary    │ List                   │                            │                                     │                   │
+│                                     │ information about EMR Studios        │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ListWorkspaceAccessIdentities       │ Grants permission to list identities │ List                   │ editor*                    │                                     │                   │
+│                                     │ that are granted access to a         │                        │                            │                                     │                   │
+│                                     │ workspace                            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ModifyCluster                       │ Grants permission to change cluster  │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ settings such as number of steps     │                        │                            │                                     │                   │
+│                                     │ that can be executed concurrently    │                        │                            │                                     │                   │
+│                                     │ for a cluster                        │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ModifyInstanceFleet                 │ Grants permission to change the      │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ target On-Demand and target Spot     │                        │                            │                                     │                   │
+│                                     │ capacities for a instance fleet      │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ModifyInstanceGroups                │ Grants permission to change the      │ Write                  │ cluster                    │                                     │                   │
+│                                     │ number and configuration of EC2      │                        │                            │                                     │                   │
+│                                     │ instances for an instance group      │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ OpenEditorInConsole                 │ Grants permission to launch the      │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ Jupyter notebook editor for an EMR   │                        │                            │                                     │                   │
+│                                     │ notebook from within the console     │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ OpenEditorInConsole                 │ Grants permission to launch the      │ Write                  │ editor*                    │                                     │                   │
+│                                     │ Jupyter notebook editor for an EMR   │                        │                            │                                     │                   │
+│                                     │ notebook from within the console     │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ PutAutoScalingPolicy                │ Grants permission to create or       │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ update an automatic scaling policy   │                        │                            │                                     │                   │
+│                                     │ for a core instance group or task    │                        │                            │                                     │                   │
+│                                     │ instance group                       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ PutAutoTerminationPolicy            │ Grants permission to create or       │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ update the auto-termination policy   │                        │                            │                                     │                   │
+│                                     │ associated with a cluster            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ PutBlockPublicAccessConfiguration   │ Grants permission to create or       │ Permissions management │                            │                                     │                   │
+│                                     │ update the EMR block public access   │                        │                            │                                     │                   │
+│                                     │ configuration for the AWS account in │                        │                            │                                     │                   │
+│                                     │ the Region                           │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ PutManagedScalingPolicy             │ Grants permission to create or       │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ update the managed scaling policy    │                        │                            │                                     │                   │
+│                                     │ associated with a cluster            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ PutWorkspaceAccess                  │ Grants permission to allow an        │ Permissions management │ editor*                    │                                     │                   │
+│                                     │ identity to open a collaborative     │                        │                            │                                     │                   │
+│                                     │ workspace                            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RemoveAutoScalingPolicy             │ Grants permission to remove an       │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ automatic scaling policy from an     │                        │                            │                                     │                   │
+│                                     │ instance group                       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RemoveAutoTerminationPolicy         │ Grants permission to remove the      │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ auto-termination policy associated   │                        │                            │                                     │                   │
+│                                     │ with a cluster                       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RemoveManagedScalingPolicy          │ Grants permission to remove the      │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ managed scaling policy associated    │                        │                            │                                     │                   │
+│                                     │ with a cluster                       │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RemoveTags                          │ Grants permission to remove tags     │ Tagging                │ cluster                    │                                     │                   │
+│                                     │ from an Amazon EMR resource          │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RemoveTags                          │ Grants permission to remove tags     │ Tagging                │ editor                     │                                     │                   │
+│                                     │ from an Amazon EMR resource          │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RemoveTags                          │ Grants permission to remove tags     │ Tagging                │ notebook-execution         │                                     │                   │
+│                                     │ from an Amazon EMR resource          │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RemoveTags                          │ Grants permission to remove tags     │ Tagging                │ studio                     │                                     │                   │
+│                                     │ from an Amazon EMR resource          │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RemoveTags                          │ Grants permission to remove tags     │ Tagging                │                            │ aws:TagKeys                         │                   │
+│                                     │ from an Amazon EMR resource          │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ RunJobFlow                          │ Grants permission to create and      │ Write                  │                            │ aws:RequestTag/${TagKey}            │                   │
+│                                     │ launch a cluster (job flow)          │                        │                            │ aws:TagKeys                         │                   │
+│                                     │                                      │                        │                            │ elasticmapreduce:RequestTag/${TagK… │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ SetTerminationProtection            │ Grants permission to add and remove  │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ termination protection for a cluster │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ StartEditor                         │ Grants permission to start an EMR    │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ notebook                             │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ StartEditor                         │ Grants permission to start an EMR    │ Write                  │ editor*                    │                                     │                   │
+│                                     │ notebook                             │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ StartNotebookExecution              │ Grants permission to start an EMR    │ Write                  │                            │ aws:RequestTag/${TagKey}            │                   │
+│                                     │ notebook execution                   │                        │                            │ aws:TagKeys                         │                   │
+│                                     │                                      │                        │                            │ elasticmapreduce:RequestTag/${TagK… │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ StartNotebookExecution              │ Grants permission to start an EMR    │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ notebook execution                   │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ StartNotebookExecution              │ Grants permission to start an EMR    │ Write                  │ editor*                    │                                     │                   │
+│                                     │ notebook execution                   │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ StopEditor                          │ Grants permission to shut down an    │ Write                  │ editor*                    │                                     │                   │
+│                                     │ EMR notebook                         │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ StopNotebookExecution               │ Grants permission to stop notebook   │ Write                  │ notebook-execution*        │                                     │                   │
+│                                     │ execution                            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ TerminateJobFlows                   │ Grants permission to terminate a     │ Write                  │ cluster*                   │                                     │                   │
+│                                     │ cluster (job flow)                   │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ UnlinkRepository                    │ Grants permission to unlink an EMR   │ Write                  │                            │                                     │                   │
+│                                     │ notebook repository from EMR         │                        │                            │                                     │                   │
+│                                     │ notebooks                            │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ UpdateEditor                        │ Grants permission to update an EMR   │ Write                  │ editor*                    │                                     │                   │
+│                                     │ notebook                             │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ UpdateRepository                    │ Grants permission to update an EMR   │ Write                  │                            │                                     │                   │
+│                                     │ notebook repository                  │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ UpdateStudio                        │ Grants permission to update          │ Write                  │ studio*                    │                                     │                   │
+│                                     │ information about an EMR Studio      │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ UpdateStudioSessionMapping          │ Grants permission to update an EMR   │ Write                  │ studio*                    │                                     │                   │
+│                                     │ Studio session mapping               │                        │                            │                                     │                   │
+├─────────────────────────────────────┼──────────────────────────────────────┼────────────────────────┼────────────────────────────┼─────────────────────────────────────┼───────────────────┤
+│ ViewEventsFromAllClustersInConsole  │ Grants permission to use the EMR     │ List                   │                            │                                     │                   │
+│                                     │ console to view events from all      │                        │                            │                                     │                   │
+│                                     │ clusters                             │                        │                            │                                     │                   │
+└─────────────────────────────────────┴──────────────────────────────────────┴────────────────────────┴────────────────────────────┴─────────────────────────────────────┴───────────────────┘
